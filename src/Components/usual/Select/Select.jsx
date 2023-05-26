@@ -19,7 +19,9 @@ export default function Select({children}){
                     className="select__chose-opiton"
                     onClick={toggleDropdownVisibility}
                 >
-                    <span>{stateScheduling.date}</span>
+                    <span style={{opacity: `${stateScheduling.date ? 1 : 0.5}`}}>
+                        {stateScheduling.date || 'Selecione uma data'}
+                    </span>
                     <RiArrowDownSLine
                         size={24}
                     />
