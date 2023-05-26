@@ -1,0 +1,98 @@
+.professional-card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-height: 384px;
+    max-width: 320px;
+    transition: 0.3s var(--delay-transition);
+}
+
+.animateIn .professional-card{
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.professional-card__img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.professional-card::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #1C1C1C, transparent);
+    position: absolute;
+}
+
+.professional-card__name-container{
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid var(--color_emphasis);
+    border-top: 3px solid var(--color_emphasis);
+    height: fit-content;
+    width: 70%;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+[data-animation='left'].professional-card__name-container{
+    width: 0;
+    height: 0;
+}
+
+.animateIn .professional-card__name-container{
+    animation: professionalNameAnimation 0.3s ease-in-out var(--delay-transition) forwards;
+}
+
+.professional-card__name{
+    --name-size: 24px;
+    font-family: 'Rockwell-condensed';
+    font-size: var(--name-size);
+    text-align: center;
+    color: var(--color_title_light);
+}
+
+.professional-card__service{
+    position: absolute;
+    opacity: 0;
+    bottom: 0px;
+    color: var(--color_title_light);
+    transition: 0.3s;
+}
+
+.professional-card:hover .professional-card__service{
+    opacity: 1;
+    bottom: 20px;
+}
+.professional-card:hover .professional-card__name-container{
+    bottom: 52px;
+}
+
+.ProfessionalCard--selectable{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.ProfessionalCard--selectable:hover{
+    opacity: 1;
+}
+.ProfessionalCard--selected{
+    border: 1px solid var(--color_emphasis);
+    opacity: 1;
+}
+
+@media screen and (max-width:1048px) {
+    .team .space-elements{
+        align-items: center;
+    }
+}
+@media screen and (max-width:760px) {
+    .professional-card{
+        height: 70vh;
+        max-height: 320px;
+        max-width: 268px;
+    }
+}

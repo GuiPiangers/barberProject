@@ -1,0 +1,84 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--color_background) url(../../../assets/bgBarbearia.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.hero::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    position: absolute;
+}
+
+.hero *{
+    z-index: 1;
+}
+
+.hero__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 16px;
+    height: 100vh;
+}
+
+.hero__content h1{
+    font-family: 'Rockwell-condensed-bold', serif;
+    font-size: 96px;
+    color: var(--color_title_light);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.animateIn .hero__content h1{
+    animation: slideIn 0.3s 0.1s ease-out forwards;
+}
+
+.hero__content p{
+    font-size: 20px;
+    color: var(--color_title_light);
+    text-align: center;
+    margin-bottom: 16px;
+}
+.animateIn .hero__content p{
+    animation: slideIn 0.3s 0.3s ease-out forwards;
+}
+
+.hero__button{
+    font-size: 20px;
+}
+
+.animateIn .hero__button{
+    animation: slideIn 0.3s 0.5s ease-out forwards;
+}
+
+@media screen and (min-width: 420px) and (max-width: 760px){
+    .hero__content h1{
+        font-size: 64px;
+    }
+    .hero__content p{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .hero__button{
+        font-size: 16px;
+    }
+    .hero__content h1{
+        font-size: 52px;
+    }
+    .hero__content p{
+        font-size: 16px;
+    }
+
+}

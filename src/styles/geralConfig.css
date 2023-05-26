@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Rockwell-condensed';
+    src: url(../assets/fonts/rockwell-condensed.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Rockwell-condensed-bold';
+    src: url(../assets/fonts/rockwell-bold-condensed.otf) format('truetype');
+}
+@font-face {
+    font-family: 'Rockwell';
+    src: url(../assets/fonts/rockwell.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Rockwell-light';
+    src: url(../assets/fonts/rockwell-light.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Rockwell-bold';
+    src: url(../assets/fonts/rockwell-bold.ttf) format('truetype');
+}
+
+:root {
+    --color_emphasis: #FAB142;
+    --color_background: #1C1C1C;
+    --color_title_dark: #1C1C1C;
+    --color_title_light: #f1f1f1;
+    --color_text_light: #c5c5c5;   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Rockwell', serif;
+}
+
+body{
+    background-color: #f1f1f1;
+}
+

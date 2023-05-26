@@ -1,0 +1,24 @@
+.select{
+    display: flex;
+    flex-direction: column;
+}
+
+.select__chose-opiton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border: 1px solid hsla(0, 0%, 100%, 0.70);
+    cursor: pointer;
+}
+.select__chose-opiton span{
+    font-size: 20px;
+}
+.select-option{
+    font-size: 20px;
+}
+
+.selected{
+    background-color: #343434;
+    color: var(--color_emphasis);
+}

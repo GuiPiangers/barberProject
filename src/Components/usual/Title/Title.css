@@ -1,0 +1,21 @@
+.title{
+    font-family: 'Rockwell-condensed-bold', serif;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.animateIn .title{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: 0.3s 0.6s;
+}
+.animateOut .title{
+    transition: 0.2s 0.5s ;
+}
+
+@media screen and (max-width: 760px) {
+    .title{
+        font-size: 32px;
+    }
+}
+

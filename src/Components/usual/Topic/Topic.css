@@ -1,0 +1,35 @@
+.topic{
+    position: relative;
+    width: fit-content;
+    font-family: 'Rockwell-condensed', serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s ease-out;
+}
+
+.animateIn .topic{
+    transform: translate3d(0, 0, 0);    
+    opacity: 1;
+}
+.animateOut .topic{
+    transition-duration: 0.2s;
+    transition-delay: 0.3s;
+}
+
+.topic::after{
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: var(--color_emphasis);
+    transition: 0.3s 0.3s;
+}
+.animateIn .topic::after{
+    width: 100%;
+}
+.animateOut .topic::after{
+    transition: 0.3s;
+}

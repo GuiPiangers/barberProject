@@ -1,0 +1,17 @@
+.services-container{
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.service-slider .swiper-wrapper{
+    display: flex;
+    align-items: stretch;
+
+}
+
+.service-slider .swiper-slide{
+    flex-grow: 1;
+    height: auto;
+}
+

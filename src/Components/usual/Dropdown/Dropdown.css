@@ -1,0 +1,18 @@
+.dropdown{
+    margin-top: 8px;
+    background-color: #262626;
+    padding: 6px 0px;
+    max-height: 100%;
+    overflow: auto;
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+    animation: slideIn ease-in-out .2s forwards;
+}
+
+.dropdown__option{
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.dropdown__option:hover{
+    background-color: #343434;
+}

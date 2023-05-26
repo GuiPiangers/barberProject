@@ -1,0 +1,62 @@
+.service-slider .swiper-slide .service-card{
+    height: 100%
+}
+
+.service-card{
+    width: 320px;
+    background-color: var(--color_background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card__img{
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.service-card__content-container{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: var(--color_title_light);
+}
+
+.service-card__body{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-card__name{
+    font-family: 'Rockwell-bold', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+.service-card__description{
+    font-family: 'Rockwell-light', sans-serif;
+    color: var(--color_text_light);
+    line-height: 1.3;
+}
+
+.service-card__footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: flex-end;
+    margin-top: 32px;
+}
+
+.service-card__price{
+    font-size: 25px;
+}
+
+@media screen and (max-width:760px) {
+    .service-card__img{
+        height: 168px;
+    }
+}

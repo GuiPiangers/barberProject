@@ -1,0 +1,41 @@
+.hero__info-bg{
+    padding: 32px 16px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.hero__info-container{
+    gap: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--color_title_light);
+    text-align: center;
+}
+
+.hero__info-title{
+    font-family: 'Rockwell-condensed', sans-serif;
+    color: var(--color_emphasis);
+    letter-spacing: 2px;
+}
+
+
+@media screen and (max-width: 760px) {
+
+    .hero__info-title{
+        font-size: 20px;
+    }
+    .hero__info-bg{
+        padding: 16px;
+    }
+
+}

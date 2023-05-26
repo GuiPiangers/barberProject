@@ -1,0 +1,30 @@
+.swiper{
+    max-width: 100%;
+}
+
+.swiper-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.swiper-pagination{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+.customBullet{
+    height: 5px;
+    width: 20px;
+    border-radius: 30px;
+    background-color: #fff;
+}
+.customBullet--dark{
+    background-color: #bbbbbb;
+}
+.customBullet--active{
+    background-color: var(--color_emphasis);
+
+}
