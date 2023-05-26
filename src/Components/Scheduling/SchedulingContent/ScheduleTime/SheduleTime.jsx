@@ -6,7 +6,7 @@ export default function ScheduleTime(){
     return(
         <div>
             <h3>Data</h3>
-            <Select>
+            <Select placeHolder='Selecione uma data'>
                 <SelectOption value='25/05/2023 - Quinta-Feira'>
                     <span>25/05/2023 - Quinta-Feira</span>
                 </SelectOption>
