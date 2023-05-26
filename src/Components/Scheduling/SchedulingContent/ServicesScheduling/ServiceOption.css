@@ -33,21 +33,28 @@
 .service-option__name{
     z-index: 1;
     font-size: 20px;
-    font-family: 'Rockwell-bold', sans-serif
+    font-family: 'Rockwell-bold', sans-serif;
 }
 .service-option__price{
     font-size: 16px;
 }
 
-.service-option.selected .service-option__img{
-    border: 1px solid var(--color_emphasis);
+.service-option--selected *{
+    transition: 0.3s;
 }
 
-.service-option.selected .service-option__name{
+.service-option.service-option--selected .service-option__img{
+    border: 1px solid var(--color_emphasis);
+}
+.service-option.service-option--selected .service-option__img::after{
+    background-color: hsla(0, 0%, 7%, 0.65);
+}
+
+.service-option.service-option--selected .service-option__name{
     color: var(--color_emphasis);
 }
 
-.service-option.selected .service-option__price{
+.service-option.service-option--selected .service-option__price{
     color: var(--color_emphasis);
 }
 

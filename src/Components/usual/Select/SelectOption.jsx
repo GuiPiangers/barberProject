@@ -2,15 +2,15 @@ import useOptionContext from "../../../data/hooks/useOptionContext";
 import DropdownOption from "../Dropdown/DropdownOption";
 
 export default function SelectOption({children, value}){
-    const {dateValue, setDateValue} = useOptionContext()
+    const {stateScheduling, dispatch} = useOptionContext()
 
     function handleOnClick(){
-        setDateValue(value)
+        dispatch({type: 'setDate', value:  value})
     }
 
     return(
         <DropdownOption 
-            customClass={`select-option ${dateValue === value ? 'selected' : ''}`}
+            customClass={`select-option ${stateScheduling.date === value ? 'selected' : ''}`}
             onClickFunction={handleOnClick}
             value={value}
         >

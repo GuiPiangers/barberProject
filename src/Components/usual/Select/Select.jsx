@@ -6,7 +6,7 @@ import Dropdown from '../Dropdown/Dropdown'
 import {RiArrowDownSLine} from 'react-icons/ri'
 
 export default function Select({children}){
-    const { dateValue } = useOptionContext()
+    const { stateScheduling } = useOptionContext()
     const [dropdownVisibility, setDropdownVisibility] = useState(false)
 
     function toggleDropdownVisibility(){
@@ -19,7 +19,7 @@ export default function Select({children}){
                     className="select__chose-opiton"
                     onClick={toggleDropdownVisibility}
                 >
-                    <span>{dateValue}</span>
+                    <span>{stateScheduling.date}</span>
                     <RiArrowDownSLine
                         size={24}
                     />

@@ -2,36 +2,26 @@ import './ProfessionalsScheduling.css'
 
 import ProfessionalCard from "../../../usual/ProfessionalCard/ProfessionalCard";
 import GridContainer from '../../../template/GridContainer/GridContainer'
+import ProfessionalsCardScheduling from './ProfessionalCardScheduling';
 
 import Daniel from '../../../../assets/Team/Daniel.jpg'
 
 export default function ProfessionalsScheduling(){
     return(
     <GridContainer>
-        <ProfessionalCard
+        <ProfessionalsCardScheduling
             name='Daniel de Moura'
             img={Daniel}
-            nameSize='18px'
-            customClass='ProfessionalCard--selectable'
         />
-        <ProfessionalCard
-            name='Daniel de Moura'
+        <ProfessionalsCardScheduling
+            name='Marcos de Moura'
             img={Daniel}
-            nameSize='18px'
-            customClass='ProfessionalCard--selectable ProfessionalCard--selected'
         />
-        <ProfessionalCard
-            name='Daniel de Moura'
+        <ProfessionalsCardScheduling
+            name='Anthonio de Moura'
             img={Daniel}
-            nameSize='18px'
-            customClass='ProfessionalCard--selectable'
         />
-        <ProfessionalCard
-            name='Daniel de Moura'
-            img={Daniel}
-            nameSize='18px'
-            customClass='ProfessionalCard--selectable'
-        />
+
     </GridContainer>
     )
 }
