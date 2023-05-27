@@ -1,27 +1,34 @@
+import { useState, useEffect } from 'react'
+import { getProfessionalsConverted } from '../../../../logic/db/prefessional'
+
 import './ProfessionalsScheduling.css'
 
-import ProfessionalCard from "../../../usual/ProfessionalCard/ProfessionalCard";
 import GridContainer from '../../../template/GridContainer/GridContainer'
 import ProfessionalsCardScheduling from './ProfessionalCardScheduling';
 
-import Daniel from '../../../../assets/Team/Daniel.jpg'
-
 export default function ProfessionalsScheduling(){
+
+    const [professionals, setProfessionals] = useState([])
+
+    useEffect(()=>{
+        async function returnProfessionals(){
+            setProfessionals(await getProfessionalsConverted())
+        }
+        returnProfessionals()
+    }, [])
+
+    function renderProfessionals(professionals){
+        return professionals.map(professional => (
+            <ProfessionalsCardScheduling
+                name={professional.name}
+                img={professional.img}
+            />)
+        )
+    }
+
     return(
     <GridContainer>
-        <ProfessionalsCardScheduling
-            name='Daniel de Moura'
-            img={Daniel}
-        />
-        <ProfessionalsCardScheduling
-            name='Marcos de Moura'
-            img={Daniel}
-        />
-        <ProfessionalsCardScheduling
-            name='Anthonio de Moura'
-            img={Daniel}
-        />
-
+        {renderProfessionals(professionals)}
     </GridContainer>
     )
 }

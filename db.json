@@ -3,34 +3,41 @@
         {
             "name": "Daniel de Moura",
             "id": "professional1",
-            "services": ["service1", "service2"]
+            "services": ["service1", "service2"],
+            "img": "http://localhost:5173/img/Team/Cezar.jpg"
         },
         {
             "name": "Cezar Luiz",
             "id": "professional2",
-            "services": ["service1", "service2"]
+            "services": ["service1", "service2"],
+            "img": "http://localhost:5173/img/Team/Daniel.jpg"
+
         },
         {
             "name": "Marcos Almeida",
             "id": "professional1",
-            "services": ["service1", "service3"]
+            "services": ["service1", "service3"],
+            "img": "http://localhost:5173/img/Team/Marcos.jpg"
         }
     ],
     "services": [
         {
             "name": "Corte",
             "price": 35,
-            "id": "service1"
+            "id": "service1",
+            "img": "http://localhost:5173/img/service/corte-img.jpg"                
         },
         {
             "name": "Barba",
             "price": 20,
-            "id": "service2"
+            "id": "service2",
+            "img": "http://localhost:5173/img/service/barba-img.jpg"  
         },
         {
             "name": "Sobrancelhas",
             "price": 30,
-            "id": "service3"
+            "id": "service3",
+            "img": "http://localhost:5173/img/service/sobrancelha-img.jpg"  
         }
     ],
     "scheduling": [
