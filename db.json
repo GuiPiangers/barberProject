@@ -1,0 +1,50 @@
+{
+    "professionals": [
+        {
+            "name": "Daniel de Moura",
+            "id": "professional1",
+            "services": ["service1", "service2"]
+        },
+        {
+            "name": "Cezar Luiz",
+            "id": "professional2",
+            "services": ["service1", "service2"]
+        },
+        {
+            "name": "Marcos Almeida",
+            "id": "professional1",
+            "services": ["service1", "service3"]
+        }
+    ],
+    "services": [
+        {
+            "name": "Corte",
+            "price": 35,
+            "id": "service1"
+        },
+        {
+            "name": "Barba",
+            "price": 20,
+            "id": "service2"
+        },
+        {
+            "name": "Sobrancelhas",
+            "price": 30,
+            "id": "service3"
+        }
+    ],
+    "scheduling": [
+        {
+            "professional": "professional1",
+            "service": "service1",
+            "date": "30/05/2023",
+            "time": "14:00"
+        },
+        {
+            "professional": "professional2",
+            "service": "service1",
+            "date": "30/05/2023",
+            "time": "14:00"
+        }
+    ]
+}
