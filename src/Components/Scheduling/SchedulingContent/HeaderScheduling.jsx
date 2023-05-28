@@ -19,7 +19,7 @@ export default function HeaderScheduling(){
             conditional = stateScheduling.professional === null
         }
         if(activeStep === 3){
-            conditional = stateScheduling.date === null
+            conditional = stateScheduling.date === null || stateScheduling.hour === null
         }
         setDisableNextButton(conditional)
     }

@@ -6,6 +6,7 @@ import HeaderScheduling from './HeaderScheduling'
 import ProfessionalsScheduling from './ProfessionalsScheduling/ProfessionalsScheduling'
 import ServicesScheduling from './ServicesScheduling/index'
 import ScheduleTime from './ScheduleTime/SheduleTime'
+import Confirmation from './ConfirmationScheduling/Confirmation'
 
 export default function SchedulingContent(){
     const {activeStep, setActiveStep} = useOptionContext()
@@ -17,7 +18,9 @@ export default function SchedulingContent(){
                 return <ProfessionalsScheduling/>
             case 3:
                 return <ScheduleTime/>
-            default:
+            case 4:
+                return <Confirmation/>
+            default: 
                 break;
         }
     }

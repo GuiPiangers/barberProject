@@ -3,6 +3,7 @@
     border: none;
     transition: 0.2s;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .button--landin-page{
@@ -36,5 +37,14 @@
 }
 .button--secondary:hover{
     background-color: #2a2a2a;
+}
 
+.button--borderLine{
+    background-color: transparent;
+    border: 2px solid var(--color_title_light);
+    color: var(--color_title_light);
+}
+.button--borderLine:hover{
+    border-color: var(--color_emphasis);
+    color: var(--color_emphasis);
 }

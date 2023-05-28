@@ -1,0 +1,30 @@
+.confirmation{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.confirmation-item{
+    background-color: #343434;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.confirmation-item__info{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.confirmation-item__name{
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.confirmation-item__category{
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--color_emphasis);
+}
