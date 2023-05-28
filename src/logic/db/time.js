@@ -1,45 +1,78 @@
 import { filterSchedulings } from "./scheduling"
-const morningTime = ['08:00:00', '11:00:00']
-const afternoonTime = ['13:00:00', '17:00:00']
-const serviceDuration = 60
 
-function converTimeToDate(time, date){
+// Formatting functions -----------------------------------------------
+
+function converToDate(date, time = '00:00'){
     const dateTime = new Date(`${date}T${time}-03:00`)
     return dateTime
 }
 
-function timeList(date){
+function formatToJavascriptDate(date){
+    const splitDate = date.split('/')
+    const dateReverse = splitDate.reverse()
+    const formatedDate = dateReverse.join('-')
 
-    const times = []
+    return formatedDate
+}
+function formatToBrDate(date){
+    const splitDate = date.split('-')
+    const dateReverse = splitDate.reverse()
+    const formatedDate = dateReverse.join('/')
 
-    let intialTime = converTimeToDate(morningTime[0], date)
-    let endTime = converTimeToDate(morningTime[1], date)
-    let stopLoop = false
-
-    while(intialTime <= endTime){
-        times.push(intialTime.toLocaleTimeString())
-        intialTime.setMinutes(intialTime.getMinutes() + serviceDuration)
-
-        if(intialTime > endTime && stopLoop === false){
-            intialTime = converTimeToDate(afternoonTime[0], date)
-            endTime = converTimeToDate(afternoonTime[1], date)
-            stopLoop = true
-        }
-    }
-
-    return times
+    return formatedDate
 }
 
-export async function availableTime(professional, date){
-    let convertDate = date.split('-')
-    convertDate = convertDate.reverse()
-    convertDate = convertDate.join('/')
-    const appointmentsObj = await filterSchedulings(professional, convertDate)
-    const appointments = appointmentsObj.map(appointment => appointment.time)
+function formatTime(date){
+    const formatedTime = Intl.DateTimeFormat("pt-BR", {
+        hour: 'numeric',
+        minute: 'numeric'
+    })
+    return formatedTime.format(date)
+}
 
-    const availableTimes = timeList(date).filter(time => {  
-        return appointments.every(appointment => {
-            return time != appointment})
+// Scheduling config -----------------------------------------
+
+const serviceDurationInMinutes = 60
+
+const timesWork = [
+    {
+        start: '08:00',
+        end: '11:00'
+    },
+    {
+        start: '13:00',
+        end: '17:00'
+    }
+]
+
+// time lists
+
+function timeList(timesWork, serviceDuration){
+    const times = []
+
+    timesWork.forEach(timeWork => {
+        const currentTime = converToDate('2023-05-30', timeWork.start)
+        const endTime = converToDate('2023-05-30', timeWork.end)
+
+        while(currentTime <= endTime){
+            times.push(formatTime(currentTime))
+            currentTime.setMinutes(currentTime.getMinutes() + serviceDuration)
+        }
+    });
+
+  return times
+}
+
+
+export async function availableTime(professional, date){
+    const dateFormated = formatToBrDate(date)
+    const schedulings = await filterSchedulings(professional, dateFormated)
+    const schedulingsTime = schedulings.map(scheduling => scheduling.time)
+
+    const availableTimes = timeList(timesWork, serviceDurationInMinutes).filter(time => {  
+        return schedulingsTime.every(scheduling => {
+            return time != scheduling
+        })
     })
 
     return availableTimes
