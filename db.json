@@ -15,7 +15,7 @@
         },
         {
             "name": "Marcos Almeida",
-            "id": "professional1",
+            "id": "professional3",
             "services": ["service1", "service3"],
             "img": "http://localhost:5173/img/Team/Marcos.jpg"
         }
@@ -45,13 +45,22 @@
             "professional": "professional1",
             "service": "service1",
             "date": "30/05/2023",
-            "time": "14:00"
+            "time": "14:00",
+            "id": "scheduling1"
         },
         {
             "professional": "professional2",
             "service": "service1",
             "date": "30/05/2023",
-            "time": "14:00"
+            "time": "14:00:00",
+            "id": "scheduling2"
+        },
+        {
+            "professional": "professional2",
+            "service": "service1",
+            "date": "30/05/2023",
+            "time": "15:00:00",
+            "id": "scheduling2"
         }
     ]
 }

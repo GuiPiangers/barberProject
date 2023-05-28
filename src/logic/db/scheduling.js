@@ -2,7 +2,7 @@ import { getServices } from "./service"
 import { getProfessionalsConverted } from "./prefessional"
 
 
-async function _getSchedulings(){
+async function _fetchSchedulings(){
     const schedulings = await fetch('http://localhost:5000/scheduling',{
         method: 'GET',
         headers: {
@@ -13,10 +13,10 @@ async function _getSchedulings(){
     return schedulings 
 }
 
-export async function getSchedulingsConverted(){
+export async function getSchedulings(){
     const services = await getServices()
     const professionals = await getProfessionalsConverted()
-    const schedulings = await _getSchedulings()
+    const schedulings = await _fetchSchedulings()
 
     const shedulingsConverted = schedulings.map((scheduling)=>{
         const schedulingService = 
@@ -31,4 +31,16 @@ export async function getSchedulingsConverted(){
 
 
     return shedulingsConverted 
+}
+
+export async function filterSchedulings(professional, date){
+    const schedulings = await _fetchSchedulings()
+
+    const shedulingsFiltred = schedulings.filter(scheduling =>{
+        const filtredByprofessional = professional === scheduling.professional
+        const filtredByDate = date === scheduling.date
+        return filtredByprofessional && filtredByDate
+    })
+
+    return shedulingsFiltred
 }

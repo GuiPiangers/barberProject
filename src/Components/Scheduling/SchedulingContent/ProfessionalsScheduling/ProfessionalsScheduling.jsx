@@ -22,6 +22,7 @@ export default function ProfessionalsScheduling(){
             <ProfessionalsCardScheduling
                 name={professional.name}
                 img={professional.img}
+                key={professional.id}
             />)
         )
     }

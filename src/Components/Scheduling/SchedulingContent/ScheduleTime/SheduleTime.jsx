@@ -1,8 +1,20 @@
-import DropdownOption from "../../../usual/Dropdown/DropdownOption";
+import { useEffect } from 'react';
+
+import { filterSchedulings } from '../../../../logic/db/scheduling';
+import { availableTime } from '../../../../logic/db/time';
+
 import SelectOption from '../../../usual/Select/SelectOption'
 import Select from "../../../usual/Select/Select";
 
 export default function ScheduleTime(){
+
+    useEffect(()=>{
+        async function returnProfessionals(){
+            console.log(await availableTime("professional2", "2023-05-30"))
+        }
+        returnProfessionals()
+    },[])
+
     return(
         <div>
             <h3>Data</h3>
