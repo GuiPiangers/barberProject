@@ -4,39 +4,14 @@ import { useEffect } from 'react'
 import useOptionContext from '../../../data/hooks/useOptionContext'
 
 export default function Step({text, stepNumber}){
-    const {activeStep, setActiveStep} = useOptionContext()
-    const steps = document.querySelectorAll('.step-container')
-
-    function setBackStepsAnimation(){
-        const stepsToAnimate = [...steps].filter(step =>{
-            const number = step.dataset.stepnumber
-            if(number >= stepNumber && number <= activeStep){
-                return true
-            }
-        })
-        const lastStep = stepsToAnimate.length-1
-
-        for(let i = lastStep; i>=1 ; i--){
-            stepsToAnimate[i-1].style = `--steps-delay: ${(lastStep-i) * 0.3}s`
-        }
-    }
-    function resetBackStepsAnimation(){
-        steps.forEach(step =>{
-            step.style = `--steps-delay: 0s`
-        })
-    }
+    const {activeStep, setActiveStep, setBackStepsAnimation} = useOptionContext()
 
     function handleOnClick(){
         if(activeStep >= stepNumber){
-            setBackStepsAnimation()
+            setBackStepsAnimation(stepNumber)
             setActiveStep(stepNumber)
         }
     }
-
-    useEffect(()=>{
-        setTimeout(resetBackStepsAnimation, 400)
-        
-    },[activeStep])
 
     return(
         <div 

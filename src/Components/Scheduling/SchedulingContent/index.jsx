@@ -1,4 +1,5 @@
 import './SchedulingContent.css'
+import { useEffect } from 'react'
 import useOptionContext from '../../../data/hooks/useOptionContext'
 import BoxContainer from '../../template/BoxContainer/BoxContainer'
 
@@ -10,6 +11,8 @@ import Confirmation from './ConfirmationScheduling/Confirmation'
 
 export default function SchedulingContent(){
     const {activeStep, setActiveStep} = useOptionContext()
+
+
     function renderStepScheduling(){
         switch (activeStep) {
             case 1:

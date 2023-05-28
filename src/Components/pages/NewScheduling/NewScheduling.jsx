@@ -1,5 +1,5 @@
 import './NewScheduling.css'
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 import optionContext from '../../../data/contexts/optionContext'
 
 import SchedulingContent from "../../Scheduling/SchedulingContent";
@@ -13,6 +13,32 @@ export default function Scheduling(){
         date: null,
         hour: null
     }
+
+    function setBackStepsAnimation(stepNumber){
+        const steps = document.querySelectorAll('.step-container')
+        const stepsToAnimate = [...steps].filter(step =>{
+            const number = step.dataset.stepnumber
+            if(number >= stepNumber && number <= activeStep){
+                return true
+            }
+        })
+        const lastStep = stepsToAnimate.length-1
+
+        for(let i = lastStep; i>=1 ; i--){
+            stepsToAnimate[i-1].style = `--steps-delay: ${(lastStep-i) * 0.3}s`
+        }
+    }
+    function resetBackStepsAnimation(){
+        const steps = document.querySelectorAll('.step-container')
+        steps.forEach(step =>{
+            step.style = `--steps-delay: 0s`
+        })
+    }
+
+    useEffect(()=>{
+        setTimeout(resetBackStepsAnimation, 400)
+        
+    },[activeStep])
 
     const reducer = (state, action)=>{
         switch(action.type){
@@ -31,10 +57,12 @@ export default function Scheduling(){
                 return state
         }
     }
+
+
     const [stateScheduling, dispatch] = useReducer(reducer, resetedSchedulingState)
 
     return(
-        <optionContext.Provider value={{stateScheduling, dispatch, activeStep, setActiveStep}}>
+        <optionContext.Provider value={{stateScheduling, dispatch, activeStep, setActiveStep, setBackStepsAnimation}}>
             <div className="new-scheduling">
                 <SchedulingContent activeStep={activeStep} setActiveStep={setActiveStep}/>
             </div>

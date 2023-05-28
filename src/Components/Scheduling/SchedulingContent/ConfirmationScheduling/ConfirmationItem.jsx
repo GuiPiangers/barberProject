@@ -3,9 +3,10 @@ import useOptionContext from '../../../../data/hooks/useOptionContext'
 
 export default function ConfirmationItem({name, category, icon, step}){
 
-    const {setActiveStep} = useOptionContext()
+    const {setActiveStep, setBackStepsAnimation} = useOptionContext()
 
     function handleOnClick(){
+        setBackStepsAnimation(step)
         setActiveStep(step)
     }
 
