@@ -65,8 +65,7 @@ function timeList(timesWork, serviceDuration){
 
 
 export async function availableTime(professional, date){
-    const dateFormated = formatToBrDate(date)
-    const schedulings = await filterSchedulings(professional, dateFormated)
+    const schedulings = await filterSchedulings(professional, date)
     const schedulingsTime = schedulings.map(scheduling => scheduling.time)
 
     const availableTimes = timeList(timesWork, serviceDurationInMinutes).filter(time => {  

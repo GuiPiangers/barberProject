@@ -1,6 +1,8 @@
 .select{
+    position: relative;
     display: flex;
     flex-direction: column;
+    /* height: 280px; */
 }
 
 .select__chose-opiton{

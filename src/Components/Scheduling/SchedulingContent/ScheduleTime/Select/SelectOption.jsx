@@ -1,5 +1,5 @@
-import useOptionContext from "../../../data/hooks/useOptionContext";
-import DropdownOption from "../Dropdown/DropdownOption";
+import useOptionContext from "../../../../../data/hooks/useOptionContext";
+import DropdownOption from "../../../../usual/Dropdown/DropdownOption";
 
 export default function SelectOption({children, value}){
     const {stateScheduling, dispatch} = useOptionContext()

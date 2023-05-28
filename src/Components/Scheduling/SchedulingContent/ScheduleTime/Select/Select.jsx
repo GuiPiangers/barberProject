@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import useOptionContext from '../../../data/hooks/useOptionContext'
+import useOptionContext from '../../../../../data/hooks/useOptionContext'
 import './Select.css'
 
-import Dropdown from '../Dropdown/Dropdown'
+import Dropdown from '../../../../usual/Dropdown/Dropdown'
 import {RiArrowDownSLine} from 'react-icons/ri'
 
 export default function Select({children, placeHolder}){

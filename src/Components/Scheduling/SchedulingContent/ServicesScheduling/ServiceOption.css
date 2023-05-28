@@ -39,12 +39,8 @@
     font-size: 16px;
 }
 
-.service-option--selected *{
-    transition: 0.3s;
-}
-
 .service-option.service-option--selected .service-option__img{
-    border: 1px solid var(--color_emphasis);
+    border: 2px solid var(--color_emphasis);
 }
 .service-option.service-option--selected .service-option__img::after{
     background-color: hsla(0, 0%, 7%, 0.65);

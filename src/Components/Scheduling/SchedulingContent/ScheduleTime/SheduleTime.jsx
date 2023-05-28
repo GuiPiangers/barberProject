@@ -1,34 +1,51 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { filterSchedulings } from '../../../../logic/db/scheduling';
+import useOptionContext from '../../../../data/hooks/useOptionContext';
+import { renderDays } from '../../../../logic/WorkingDaysOfWeek';
 import { availableTime } from '../../../../logic/db/time';
 
-import SelectOption from '../../../usual/Select/SelectOption'
-import Select from "../../../usual/Select/Select";
+import SelectOption from './Select/SelectOption'
+import Select from "./Select/Select";
+import Time from './Time/Time';
 
 export default function ScheduleTime(){
+    
+    const {stateScheduling} = useOptionContext()
+    const listOfDays = renderDays()
+    const [timeList, setTimeList] = useState([])
 
     useEffect(()=>{
         async function returnProfessionals(){
-            console.log(await availableTime("professional2", "2023-05-30"))
+            setTimeList(await availableTime(stateScheduling.professional?.id, stateScheduling.date))
         }
         returnProfessionals()
-    },[])
+    },[stateScheduling.professional, stateScheduling.date])
+
+
+    function renderTimeList(){
+        if(stateScheduling.date === null){
+            return
+        }
+        return(
+            timeList.map(time =>(
+                <Time key={time} time={time}/>
+            ))
+        )
+    }
 
     return(
         <div>
             <h3>Data</h3>
             <Select placeHolder='Selecione uma data'>
-                <SelectOption value='25/05/2023 - Quinta-Feira'>
-                    <span>25/05/2023 - Quinta-Feira</span>
-                </SelectOption>
-                <SelectOption value='26/05/2023 - Sexta-Feira'>
-                    <span>26/05/2023 - Sexta-Feira</span>
-                </SelectOption>
-                <SelectOption value='27/05/2023 - Sábado'>
-                    <span>27/05/2023 - Sábado</span>
-                </SelectOption>
+                {listOfDays.map((day, index) =>(
+                    <SelectOption value={day} key={index}>
+                        <span>{day}</span>
+                    </SelectOption>
+                ))}
             </Select>
+            <div className='time-container'>
+                {renderTimeList()}
+            </div>
         </div>
     )
 }

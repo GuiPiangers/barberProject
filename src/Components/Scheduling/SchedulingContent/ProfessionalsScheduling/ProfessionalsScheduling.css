@@ -3,7 +3,6 @@
 }
 
 .professional-card--selectable{
-    transition: 0.3s;
     cursor: pointer;
     opacity: 0.6;
 }
@@ -12,6 +11,6 @@
 }
 
 .professional-card--selected{
-    border: 1px solid var(--color_emphasis);
+    border: 2px solid var(--color_emphasis);
     opacity: 1;
 }
