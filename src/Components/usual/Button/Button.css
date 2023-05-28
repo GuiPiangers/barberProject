@@ -48,3 +48,8 @@
     border-color: var(--color_emphasis);
     color: var(--color_emphasis);
 }
+
+.button--big{
+    padding: 10px 32px;
+    font-size: 16px;
+}

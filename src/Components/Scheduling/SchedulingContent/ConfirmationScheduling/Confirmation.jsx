@@ -1,7 +1,10 @@
 import './Confirmation.css'
 import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
-import ConfirmationItem from "./ConfirmationItem";
 import useOptionContext from "../../../../data/hooks/useOptionContext";
+
+import ConfirmationItem from "./ConfirmationItem";
+import Button from '../../../usual/Button/Button'
+
 
 
 export default function Confirmation(){
@@ -38,6 +41,7 @@ export default function Confirmation(){
             step={3}
         />
         
+        <Button customClass={'button--primary button--big'}>Confirmar</Button>
     </div>
  )
 }

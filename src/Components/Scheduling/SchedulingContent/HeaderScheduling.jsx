@@ -6,26 +6,33 @@ import createSteps from '../Steps/createSteps'
 export default function HeaderScheduling(){
 
     const [disableNextButton, setDisableNextButton] = useState(true)
+    const [titleText, setTitleText] = useState('')
     const {activeStep, setActiveStep, stateScheduling} = useOptionContext()
     const stepsText = ['Servico', 'Profissional', 'Data e Hora', 'Confirmar']
     const Steps = createSteps(stepsText)
 
-    function returnDisableButton(activeStep){
+    function checkActiveStep(activeStep){
         let conditional = false
         if(activeStep === 1){
             conditional = stateScheduling.service === null
+            setTitleText('Selecione um serviço')
         }
         if(activeStep === 2){
             conditional = stateScheduling.professional === null
+            setTitleText('Selecione um profissional')
         }
         if(activeStep === 3){
             conditional = stateScheduling.date === null || stateScheduling.hour === null
+            setTitleText('Selecione uma data e horário')
+        }
+        if(activeStep === 4){
+            setTitleText('Confirme o agendamento')
         }
         setDisableNextButton(conditional)
     }
 
     useEffect(()=>{
-        returnDisableButton(activeStep)
+        checkActiveStep(activeStep)
     }, [activeStep, stateScheduling])
 
     function nextStep(){
@@ -70,7 +77,7 @@ export default function HeaderScheduling(){
     return(
         <div className='scheduling__header'>
             <div className='flex-row'>
-                <h2 className='scheduling__title'>Selecione seu serviço</h2>
+                <h2 className='scheduling__title'>{titleText}</h2>
                 <div className='button-container'>
                     {genereteSecudaryButton()}
                     {generetePrimaryButton()}
