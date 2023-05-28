@@ -3,11 +3,14 @@ import useOptionContext from "../../../../data/hooks/useOptionContext";
 
 import ProfessionalCard from "../../../usual/ProfessionalCard/ProfessionalCard";
 
-export default function ProfessionalsCardScheduling({name, img}){
+export default function ProfessionalsCardScheduling({name, img, id}){
     const {stateScheduling, dispatch} = useOptionContext()
 
     function handleOnClick(){
-        dispatch({type: 'setProfessional', value:  name})
+        dispatch({type: 'setProfessional', value:  {
+            name: name,
+            id: id
+        }})
     }
 
     return(
@@ -19,7 +22,7 @@ export default function ProfessionalsCardScheduling({name, img}){
                 img={img}
                 nameSize='18px'
                 customClass={`professional-card--selectable
-                    ${stateScheduling.professional === name ? 'professional-card--selected' : ''}`}
+                    ${stateScheduling.professional?.id === id ? 'professional-card--selected' : ''}`}
             />
         </div>
     )

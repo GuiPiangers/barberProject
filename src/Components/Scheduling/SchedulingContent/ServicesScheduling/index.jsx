@@ -22,6 +22,7 @@ export default function SchedulingServices(){
             src={service.img}
             name={service.name}
             price={service.price}
+            id={service.id}
             key={service.id}
         />))
     }

@@ -11,18 +11,17 @@ export default function HeaderScheduling(){
     const Steps = createSteps(stepsText)
 
     function returnDisableButton(activeStep){
+        let conditional = false
         if(activeStep === 1){
-            let conditional = stateScheduling.service?.length === 0
-            setDisableNextButton(conditional)
+            conditional = stateScheduling.service === null
         }
         if(activeStep === 2){
-            let conditional = stateScheduling.professional?.length === undefined
-            setDisableNextButton(conditional)
+            conditional = stateScheduling.professional === null
         }
         if(activeStep === 3){
-            let conditional = stateScheduling.date?.length === undefined
-            setDisableNextButton(conditional)
+            conditional = stateScheduling.date === null
         }
+        setDisableNextButton(conditional)
     }
 
     useEffect(()=>{
