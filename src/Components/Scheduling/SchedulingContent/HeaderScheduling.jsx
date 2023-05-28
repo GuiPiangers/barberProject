@@ -77,7 +77,7 @@ export default function HeaderScheduling(){
     return(
         <div className='scheduling__header'>
             <div className='flex-row'>
-                <h2 className='scheduling__title'>{titleText}</h2>
+                <h1 className='scheduling__title'>{titleText}</h1>
                 <div className='button-container'>
                     {genereteSecudaryButton()}
                     {generetePrimaryButton()}

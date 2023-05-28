@@ -1,46 +1,45 @@
 import './Team.css'
 
+import { useState, useEffect } from 'react';
+import { getProfessionalsConverted } from '../../../logic/db/prefessional';
+
 import BoxContainer from "../../template/BoxContainer/BoxContainer";
 import Title from "../../usual/Title/Title";
 import Topic from "../../usual/Topic/Topic";
 import ProfessionalCard from '../../usual/ProfessionalCard/ProfessionalCard';
 
-import DanielImg from "../../../assets/Team/Daniel.jpg"
-import CezarImg from "../../../assets/Team/Cezar.jpg"
-import MarcosImg from "../../../assets/Team/Marcos.jpg"
-
 export default function Team(){
+
+    const [professionals, setProfessionals] = useState([])
+
+    useEffect(()=>{
+        async function returnProfessionals(){
+            setProfessionals(await getProfessionalsConverted())
+        }
+        returnProfessionals()
+    }, [])
+
+    function renderProfessionalCards(){
+        return professionals.map((professional, index) =>(
+            <ProfessionalCard 
+            name={professional.name}
+            img={professional.img}
+            id={professional.id}
+            key={professional.id}
+            service={professional.services.join(' - ')}
+            delayTransition={(0.7 + (index * 0.1))}
+            animation='left'
+        />
+        ))
+    }
+
     return(
         <section className="team" id="team">
             <BoxContainer className='space-elements' maxWidth={'1032px'}>
                 <Topic>Time</Topic>
                 <Title>Nossos Barbeiros</Title>
                 <div className="professional-cards-container">
-                    <ProfessionalCard 
-                        img={DanielImg}
-                        name="Daniel de Moura"
-                        service="Corte - Barba"
-                        delayTransition={0.7}
-                        animation='left'
-                    />
-                    <ProfessionalCard 
-                        img={CezarImg}
-                        name="Cezar Luiz"
-                        service="Corte - Barba"
-                        delayTransition={0.8}
-                        animation='left'
-
-                    />
-                    <ProfessionalCard 
-                        img={MarcosImg}
-                        name="Marcos Almeida"    
-                        service="Corte - Sobrancelha"
-                        delayTransition={0.9}
-                        animation='left'
-
-                    />
-
-
+                    {renderProfessionalCards()}
                 </div>
             </BoxContainer>
 

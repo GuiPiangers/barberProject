@@ -24,18 +24,21 @@
         {
             "name": "Corte",
             "price": 35,
+            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
             "id": "service1",
             "img": "http://localhost:5173/img/service/corte-img.jpg"                
         },
         {
             "name": "Barba",
             "price": 20,
+            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est.",
             "id": "service2",
             "img": "http://localhost:5173/img/service/barba-img.jpg"  
         },
         {
             "name": "Sobrancelhas",
             "price": 30,
+            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
             "id": "service3",
             "img": "http://localhost:5173/img/service/sobrancelha-img.jpg"  
         }

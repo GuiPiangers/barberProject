@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import useWindowSize from "../../../data/hooks/useWindowSize";
+import { getServices } from "../../../logic/db/service";
 import './Service.css'
 
 import BoxContainer from "../../template/BoxContainer/BoxContainer";
@@ -13,27 +15,45 @@ import ServiceSlideContainer from "./ServiceSlideContainer";
 
 export default function Services(){
     const [ , windowWidth] = useWindowSize()
+    const [services, setServices] = useState([])
+
+    useEffect(()=>{
+        async function returnServices(){
+            setServices(await getServices())
+        }
+        returnServices()
+    }, [])
 
     function renderServiceCards(){
-        return(
-            <>
-                <ServiceCard 
-                    img={corteImg}
-                    name='Corte'
-                    description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.'
-                    price={35}/>
-                <ServiceCard 
-                    img={barbaImg}
-                    name='Barba'
-                    description='At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
-                    price={35}/>
-                <ServiceCard 
-                    img={sobrancelhaImg}
-                    name='Sobrancelha'
-                    description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
-                    price={35}/>
-            </>
-        )
+        return services.map(service =>(            
+            <ServiceCard 
+                img={service.img}
+                name={service.name}
+                description={service.description}
+                price={service.price}
+                id={service.id}
+                key={service.id}
+            />
+            ))
+        // return(
+        //     <>
+        //         <ServiceCard 
+        //             img={corteImg}
+        //             name='Corte'
+        //             description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.'
+        //             price={35}/>
+        //         <ServiceCard 
+        //             img={barbaImg}
+        //             name='Barba'
+        //             description='At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
+        //             price={35}/>
+        //         <ServiceCard 
+        //             img={sobrancelhaImg}
+        //             name='Sobrancelha'
+        //             description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
+        //             price={35}/>
+        //     </>
+        // )
     }
 
     return(
@@ -50,7 +70,8 @@ export default function Services(){
                     <ServiceSlideContainer>
                         {renderServiceCards()}
                     </ServiceSlideContainer>
-                )}
+                )
+                }
             </BoxContainer>
         </section>
     )

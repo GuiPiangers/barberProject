@@ -6,8 +6,6 @@ import 'swiper/css/a11y';
 
 export default function ServiceSlideContainer({children}){
 
-
-
     return(
         <Swiper className='service-slider'
             modules={[ Pagination, A11y]}
@@ -21,7 +19,7 @@ export default function ServiceSlideContainer({children}){
             
         >
                 
-            {children.props.children.map((child, index)=>
+            {children?.map((child, index)=>
                 <SwiperSlide 
                     key={index}
                     style={{maxWidth: '320px'}}

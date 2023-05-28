@@ -35,7 +35,7 @@ export default function ScheduleTime(){
 
     return(
         <div>
-            <h3>Data</h3>
+            <h3 style={{marginBottom: '8px'}}>Data</h3>
             <Select placeHolder='Selecione uma data'>
                 {listOfDays.map((day, index) =>(
                     <SelectOption value={day} key={index}>
