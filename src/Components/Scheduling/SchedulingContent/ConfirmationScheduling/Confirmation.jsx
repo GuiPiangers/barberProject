@@ -1,14 +1,27 @@
 import './Confirmation.css'
 import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
+import { v4 as uuidv4 } from 'uuid';
 import useOptionContext from "../../../../data/hooks/useOptionContext";
+import { pushSchedulings } from '../../../../logic/db/scheduling';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
 
 
-
 export default function Confirmation(){
     const {stateScheduling} = useOptionContext()
+
+    function handleOnClick(){
+        const newScheduling = {
+            professional: stateScheduling.professional.id,
+            service: stateScheduling.service.id,
+            date: stateScheduling.date,
+            time: stateScheduling.hour,
+            id: uuidv4()
+        }
+        pushSchedulings(newScheduling)
+    }
+    
 
  return(
     <div className="confirmation">
@@ -41,7 +54,11 @@ export default function Confirmation(){
             step={3}
         />
         
-        <Button customClass={'button--primary button--big'}>Confirmar</Button>
+        <Button customClass={'button--primary button--big'}
+            onClick={handleOnClick}
+        >
+            Confirmar
+        </Button>
     </div>
  )
 }

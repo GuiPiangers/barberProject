@@ -13,6 +13,19 @@ async function _fetchSchedulings(){
     return schedulings 
 }
 
+export async function pushSchedulings(newScheduling){
+    const schedulings = await fetch('http://localhost:5000/scheduling',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newScheduling)
+    })
+    .then(resp => resp.json())
+    .then(console.log)
+    .catch(console.log)
+}
+
 export async function getSchedulings(){
     const services = await getServices()
     const professionals = await getProfessionalsConverted()

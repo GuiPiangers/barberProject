@@ -1,76 +1,105 @@
 {
-    "professionals": [
-        {
-            "name": "Daniel de Moura",
-            "id": "professional1",
-            "services": ["service1", "service2"],
-            "img": "http://localhost:5173/img/Team/Cezar.jpg"
-        },
-        {
-            "name": "Cezar Luiz",
-            "id": "professional2",
-            "services": ["service1", "service2"],
-            "img": "http://localhost:5173/img/Team/Daniel.jpg"
-
-        },
-        {
-            "name": "Marcos Almeida",
-            "id": "professional3",
-            "services": ["service1", "service3"],
-            "img": "http://localhost:5173/img/Team/Marcos.jpg"
-        }
-    ],
-    "services": [
-        {
-            "name": "Corte",
-            "price": 35,
-            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
-            "id": "service1",
-            "img": "http://localhost:5173/img/service/corte-img.jpg"                
-        },
-        {
-            "name": "Barba",
-            "price": 20,
-            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est.",
-            "id": "service2",
-            "img": "http://localhost:5173/img/service/barba-img.jpg"  
-        },
-        {
-            "name": "Sobrancelhas",
-            "price": 30,
-            "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
-            "id": "service3",
-            "img": "http://localhost:5173/img/service/sobrancelha-img.jpg"  
-        }
-    ],
-    "scheduling": [
-        {
-            "professional": "professional1",
-            "service": "service1",
-            "date": "30/05/2023",
-            "time": "14:00",
-            "id": "scheduling1"
-        },
-        {
-            "professional": "professional2",
-            "service": "service1",
-            "date": "30/05/2023",
-            "time": "14:00",
-            "id": "scheduling2"
-        },
-        {
-            "professional": "professional2",
-            "service": "service1",
-            "date": "30/05/2023",
-            "time": "11:00",
-            "id": "scheduling2"
-        },
-        {
-            "professional": "professional2",
-            "service": "service1",
-            "date": "30/05/2023",
-            "time": "15:00",
-            "id": "scheduling2"
-        }
-    ]
+  "professionals": [
+    {
+      "name": "Daniel de Moura",
+      "id": "professional1",
+      "services": [
+        "service1",
+        "service2"
+      ],
+      "img": "http://localhost:5173/img/Team/Cezar.jpg"
+    },
+    {
+      "name": "Cezar Luiz",
+      "id": "professional2",
+      "services": [
+        "service1",
+        "service2"
+      ],
+      "img": "http://localhost:5173/img/Team/Daniel.jpg"
+    },
+    {
+      "name": "Marcos Almeida",
+      "id": "professional3",
+      "services": [
+        "service1",
+        "service3"
+      ],
+      "img": "http://localhost:5173/img/Team/Marcos.jpg"
+    }
+  ],
+  "services": [
+    {
+      "name": "Corte",
+      "price": 35,
+      "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
+      "id": "service1",
+      "img": "http://localhost:5173/img/service/corte-img.jpg"
+    },
+    {
+      "name": "Barba",
+      "price": 20,
+      "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est.",
+      "id": "service2",
+      "img": "http://localhost:5173/img/service/barba-img.jpg"
+    },
+    {
+      "name": "Sobrancelhas",
+      "price": 30,
+      "description": "At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.",
+      "id": "service3",
+      "img": "http://localhost:5173/img/service/sobrancelha-img.jpg"
+    }
+  ],
+  "scheduling": [
+    {
+      "professional": "professional1",
+      "service": "service1",
+      "date": "30/05/2023",
+      "time": "14:00",
+      "id": "scheduling1"
+    },
+    {
+      "professional": "professional2",
+      "service": "service1",
+      "date": "30/05/2023",
+      "time": "14:00",
+      "id": "scheduling2"
+    },
+    {
+      "professional": "professional2",
+      "service": "service1",
+      "date": "30/05/2023",
+      "time": "11:00",
+      "id": "scheduling2"
+    },
+    {
+      "professional": "professional2",
+      "service": "service1",
+      "date": "30/05/2023",
+      "time": "15:00",
+      "id": "scheduling2"
+    },
+    {
+      "professional": "professional2",
+      "service": "service1",
+      "date": "02/06/2023",
+      "time": "09:00",
+      "id": "a2a17778-2fbb-4978-9edf-fe21a7337279"
+    },
+    {
+      "professional": "professional3",
+      "service": "service3",
+      "date": "01/06/2023",
+      "time": "14:00",
+      "id": "c2b0d15a-502c-4c90-85ff-5949a3df7209"
+    },
+    {
+      "professional": "professional3",
+      "service": "service3",
+      "date": "01/06/2023",
+      "time": "15:00",
+      "id": "bdcc4f7c-e0b2-475f-896c-383569635ff3"
+    }
+  ]
 }
