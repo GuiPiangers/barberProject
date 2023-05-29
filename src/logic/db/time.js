@@ -7,21 +7,6 @@ function converToDate(date, time = '00:00'){
     return dateTime
 }
 
-function formatToJavascriptDate(date){
-    const splitDate = date.split('/')
-    const dateReverse = splitDate.reverse()
-    const formatedDate = dateReverse.join('-')
-
-    return formatedDate
-}
-function formatToBrDate(date){
-    const splitDate = date.split('-')
-    const dateReverse = splitDate.reverse()
-    const formatedDate = dateReverse.join('/')
-
-    return formatedDate
-}
-
 function formatTime(date){
     const formatedTime = Intl.DateTimeFormat("pt-BR", {
         hour: 'numeric',
@@ -67,12 +52,18 @@ function timeList(timesWork, serviceDuration){
 export async function availableTime(professional, date){
     const schedulings = await filterSchedulings(professional, date)
     const schedulingsTime = schedulings.map(scheduling => scheduling.time)
+    const currentDate = new Date()
 
     const availableTimes = timeList(timesWork, serviceDurationInMinutes).filter(time => {  
         return schedulingsTime.every(scheduling => {
             return time != scheduling
         })
     })
+
+    if(date && date === currentDate.toLocaleDateString()){
+        return availableTimes.filter(time => time >= formatTime(currentDate))
+    }
+
 
     return availableTimes
 

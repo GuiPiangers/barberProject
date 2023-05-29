@@ -14,7 +14,6 @@ export default function ProfessionalsScheduling(){
 
     useEffect(()=>{
         async function returnProfessionals(){
-            console.log(stateScheduling.service)
             setProfessionals(await getProfessionalsConverted(stateScheduling.service.id))
         }
         returnProfessionals()
