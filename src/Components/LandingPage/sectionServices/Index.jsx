@@ -35,25 +35,6 @@ export default function Services(){
                 key={service.id}
             />
             ))
-        // return(
-        //     <>
-        //         <ServiceCard 
-        //             img={corteImg}
-        //             name='Corte'
-        //             description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem.'
-        //             price={35}/>
-        //         <ServiceCard 
-        //             img={barbaImg}
-        //             name='Barba'
-        //             description='At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
-        //             price={35}/>
-        //         <ServiceCard 
-        //             img={sobrancelhaImg}
-        //             name='Sobrancelha'
-        //             description='At vero eos et accusam et justo At vero eos et accusam et justo duo dolores et ea rebumclita kasd gubergren takimata sanctus est Lorem ipsum dolor sit amet Lorem'
-        //             price={35}/>
-        //     </>
-        // )
     }
 
     return(

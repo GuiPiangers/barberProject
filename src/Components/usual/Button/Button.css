@@ -4,6 +4,7 @@
     transition: 0.2s;
     cursor: pointer;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .button--landin-page{
@@ -16,6 +17,14 @@
 }
 .button--landin-page:hover{
     background-color: var(--color_emphasis);
+}
+
+.link-button{
+    font-family: 'Rockwell-condensed',  serif;
+    letter-spacing: 2px;
+    color: var(--color_title_light);
+    text-decoration: none;
+
 }
 
 .button--primary{

@@ -38,6 +38,7 @@ export default function Hero(){
                 <Button 
                     customClass='hero__button button--landin-page'
                     data-animation='left'
+                    link='/scheduling'
                 >
                     AGENDAMENTO ONLINE
                 </Button>
