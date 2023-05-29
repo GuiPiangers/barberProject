@@ -7,10 +7,7 @@ import BoxContainer from "../../template/BoxContainer/BoxContainer";
 import Title from "../../usual/Title/Title";
 import Topic from "../../usual/Topic/Topic";
 import ServiceCard from "./ServiceCard/ServiceCard";
-import corteImg from '../../../assets/Service/corte-img.jpg'
 
-import barbaImg from '../../../assets/Service/barba-img.jpg'
-import sobrancelhaImg from '../../../assets/Service/sobrancelha-img.jpg'
 import ServiceSlideContainer from "./ServiceSlideContainer";
 
 export default function Services(){
