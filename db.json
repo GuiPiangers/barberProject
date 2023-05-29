@@ -1,4 +1,12 @@
 {
+  "users": [
+    {
+      "name": "Cezar Luiz",
+      "email": "cezar@gmail.com",
+      "senha": "cezar123",
+      "id": "user1"
+    }
+  ],
   "professionals": [
     {
       "name": "Daniel de Moura",
@@ -100,6 +108,13 @@
       "date": "01/06/2023",
       "time": "15:00",
       "id": "bdcc4f7c-e0b2-475f-896c-383569635ff3"
+    },
+    {
+      "professional": "professional3",
+      "service": "service1",
+      "date": "31/05/2023",
+      "time": "09:00",
+      "id": "56929d2a-a9bf-4411-b9d3-7eaa25d82c4d"
     }
   ]
 }
