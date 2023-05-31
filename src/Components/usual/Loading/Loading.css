@@ -1,0 +1,15 @@
+.loading{
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+    background-color: rgba(28, 28, 28, 0.90);
+}
+
+.loading img{
+    width: 64px;
+}

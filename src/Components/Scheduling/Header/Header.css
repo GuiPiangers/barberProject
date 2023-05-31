@@ -1,0 +1,12 @@
+.header-dropdown{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--color_title_light);
+}
+
+
+.logout{
+    color: rgb(192, 72, 72);
+}

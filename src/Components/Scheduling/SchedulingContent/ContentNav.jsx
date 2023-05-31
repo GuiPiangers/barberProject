@@ -3,7 +3,7 @@ import useOptionContext from '../../../data/hooks/useOptionContext'
 import Button from '../../usual/Button/Button'
 import createSteps from '../Steps/createSteps'
 
-export default function HeaderScheduling(){
+export default function ContentNav(){
 
     const [disableNextButton, setDisableNextButton] = useState(true)
     const [titleText, setTitleText] = useState('')
@@ -75,7 +75,7 @@ export default function HeaderScheduling(){
     }
 
     return(
-        <div className='scheduling__header'>
+        <div className='scheduling__nav'>
             <div className='flex-row'>
                 <h1 className='scheduling__title'>{titleText}</h1>
                 <div className='button-container'>

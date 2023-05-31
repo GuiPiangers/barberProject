@@ -1,13 +1,14 @@
 import  './Dropdown.css'
 
-export default function Dropdown({children, visibility, setVisibility}){
+export default function Dropdown({children, visibility, setVisibility, customClass, style}){
     
     return(
         <>
         {visibility ? (
             <div
-                className="dropdown"
+                className={`dropdown ${customClass}`}
                 onClick={setVisibility}
+                style={style}
             >
                 {children}
             </div>

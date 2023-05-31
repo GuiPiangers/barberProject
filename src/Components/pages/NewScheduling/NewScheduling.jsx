@@ -3,11 +3,12 @@ import { useState, useReducer, useEffect } from 'react';
 import optionContext from '../../../data/contexts/optionContext'
 import Authentication from '../../../logic/firebase/auth/Auth';
 
+import HeaderScheduling from '../../Scheduling/Header/HeaderScheduling';
 import SchedulingContent from "../../Scheduling/SchedulingContent";
 
 export default function Scheduling(){
     const [activeStep, setActiveStep] = useState(1)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
     
     const auth = new Authentication()
@@ -19,6 +20,14 @@ export default function Scheduling(){
         await auth.logout()
         setUser(null)
     }
+
+    useEffect(()=>{
+        const cancel = auth.observeUser((user)=>{
+            setUser(user)
+            setLoading(false)
+        })
+        return () => cancel()
+    },[])
 
     function setBackStepsAnimation(stepNumber){
         const steps = document.querySelectorAll('.step-container')
@@ -78,6 +87,7 @@ export default function Scheduling(){
         <optionContext.Provider value={{
             loginGoogle,
             logout,
+            loading,
             user,
             stateScheduling, 
             dispatch, 
@@ -85,6 +95,8 @@ export default function Scheduling(){
             setActiveStep, 
             setBackStepsAnimation
         }}>
+            
+            <HeaderScheduling/>
             <div className="new-scheduling">
                 <SchedulingContent activeStep={activeStep} setActiveStep={setActiveStep}/>
             </div>

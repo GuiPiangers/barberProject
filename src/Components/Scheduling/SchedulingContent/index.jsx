@@ -3,14 +3,15 @@ import useOptionContext from '../../../data/hooks/useOptionContext'
 import BoxContainer from '../../template/BoxContainer/BoxContainer'
 
 import AuthPopup from '../AuthPopup/Index'
-import HeaderScheduling from './HeaderScheduling'
+import NavScheduling from './ContentNav'
 import ProfessionalsScheduling from './ProfessionalsScheduling/ProfessionalsScheduling'
 import ServicesScheduling from './ServicesScheduling/index'
 import ScheduleTime from './ScheduleTime/SheduleTime'
 import Confirmation from './ConfirmationScheduling/Confirmation'
+import Loading from '../../usual/Loading/Loading'
 
 export default function SchedulingContent(){
-    const {activeStep, setActiveStep, user} = useOptionContext()
+    const {activeStep, setActiveStep, user, loading} = useOptionContext()
 
 
     function renderStepScheduling(){
@@ -29,9 +30,9 @@ export default function SchedulingContent(){
     }
     return(
         <div className="scheduling-content__container">
-            {!user && <AuthPopup/>}            
+            {loading ? <Loading/> : !user && <AuthPopup/>}            
             <BoxContainer maxWidth={'832px'} className='scheduling-content'>
-                <HeaderScheduling setActiveStep={setActiveStep} activeStep={activeStep}/>
+                <NavScheduling setActiveStep={setActiveStep} activeStep={activeStep}/>
                 {renderStepScheduling()}
             </BoxContainer>
         </div>

@@ -13,7 +13,7 @@
     flex-direction: column;
 }
 
-.scheduling__header{
+.scheduling__nav{
     position: sticky;
     padding-top: 80px;
     top: 0px;

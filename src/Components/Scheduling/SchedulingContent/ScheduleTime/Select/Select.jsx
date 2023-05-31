@@ -26,7 +26,7 @@ export default function Select({children, placeHolder}){
                         size={24}
                     />
                 </div>
-                <Dropdown 
+                <Dropdown style={{width: '100%'}}
                     visibility={dropdownVisibility}
                     setVisibility={toggleDropdownVisibility}
                 >

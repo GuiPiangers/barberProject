@@ -36,9 +36,9 @@ export default class Authentication{
 
         return{
             id: firebaseUser.uid,
-            nome: firebaseUser.displayName,
+            name: firebaseUser.displayName,
             email: firebaseUser.email,
-            imageUrl: firebaseUser.photoURL
+            image: firebaseUser.photoURL
         }
     }
 }
