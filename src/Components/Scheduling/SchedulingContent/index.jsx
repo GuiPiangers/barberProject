@@ -1,8 +1,8 @@
 import './SchedulingContent.css'
-import { useEffect } from 'react'
 import useOptionContext from '../../../data/hooks/useOptionContext'
 import BoxContainer from '../../template/BoxContainer/BoxContainer'
 
+import AuthPopup from '../AuthPopup/Index'
 import HeaderScheduling from './HeaderScheduling'
 import ProfessionalsScheduling from './ProfessionalsScheduling/ProfessionalsScheduling'
 import ServicesScheduling from './ServicesScheduling/index'
@@ -29,6 +29,7 @@ export default function SchedulingContent(){
     }
     return(
         <div className="scheduling-content__container">
+            <AuthPopup/>
             <BoxContainer maxWidth={'832px'} className='scheduling-content'>
                 <HeaderScheduling setActiveStep={setActiveStep} activeStep={activeStep}/>
                 {renderStepScheduling()}
