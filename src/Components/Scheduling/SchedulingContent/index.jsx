@@ -10,7 +10,7 @@ import ScheduleTime from './ScheduleTime/SheduleTime'
 import Confirmation from './ConfirmationScheduling/Confirmation'
 
 export default function SchedulingContent(){
-    const {activeStep, setActiveStep} = useOptionContext()
+    const {activeStep, setActiveStep, user} = useOptionContext()
 
 
     function renderStepScheduling(){
@@ -29,7 +29,7 @@ export default function SchedulingContent(){
     }
     return(
         <div className="scheduling-content__container">
-            <AuthPopup/>
+            {!user && <AuthPopup/>}            
             <BoxContainer maxWidth={'832px'} className='scheduling-content'>
                 <HeaderScheduling setActiveStep={setActiveStep} activeStep={activeStep}/>
                 {renderStepScheduling()}

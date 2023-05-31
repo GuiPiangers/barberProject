@@ -1,17 +1,23 @@
 import './NewScheduling.css'
 import { useState, useReducer, useEffect } from 'react';
 import optionContext from '../../../data/contexts/optionContext'
+import Authentication from '../../../logic/firebase/auth/Auth';
 
 import SchedulingContent from "../../Scheduling/SchedulingContent";
 
 export default function Scheduling(){
     const [activeStep, setActiveStep] = useState(1)
-
-    const resetedSchedulingState = {
-        service: null,
-        professional:  null,
-        date: null,
-        hour: null
+    const [loading, setLoading] = useState(false)
+    const [user, setUser] = useState(null)
+    
+    const auth = new Authentication()
+    async function loginGoogle(){
+        const loggedUser = await auth.loginGoogle()
+        setUser(loggedUser)
+    }
+    async function logout(){
+        await auth.logout()
+        setUser(null)
     }
 
     function setBackStepsAnimation(stepNumber){
@@ -33,6 +39,13 @@ export default function Scheduling(){
         steps.forEach(step =>{
             step.style = `--steps-delay: 0s`
         })
+    }
+
+    const resetedSchedulingState = {
+        service: null,
+        professional:  null,
+        date: null,
+        hour: null
     }
 
     useEffect(()=>{
@@ -62,7 +75,16 @@ export default function Scheduling(){
     const [stateScheduling, dispatch] = useReducer(reducer, resetedSchedulingState)
 
     return(
-        <optionContext.Provider value={{stateScheduling, dispatch, activeStep, setActiveStep, setBackStepsAnimation}}>
+        <optionContext.Provider value={{
+            loginGoogle,
+            logout,
+            user,
+            stateScheduling, 
+            dispatch, 
+            activeStep, 
+            setActiveStep, 
+            setBackStepsAnimation
+        }}>
             <div className="new-scheduling">
                 <SchedulingContent activeStep={activeStep} setActiveStep={setActiveStep}/>
             </div>
