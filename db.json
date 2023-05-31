@@ -1,12 +1,4 @@
 {
-  "users": [
-    {
-      "name": "Cezar Luiz",
-      "email": "cezar@gmail.com",
-      "senha": "cezar123",
-      "id": "user1"
-    }
-  ],
   "professionals": [
     {
       "name": "Daniel de Moura",
