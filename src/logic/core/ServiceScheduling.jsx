@@ -4,22 +4,22 @@ import Colection from "../firebase/db/Colection";
 export default class ServicosTransacao {
     _colection = new Colection()
 
-    async save(scheduling, user) {
+    async save(scheduling) {
+        console.log(scheduling)
         return this._colection.save(
-            `financas/${user.email}/transacoes`,
-            scheduling
+            `scheduling`, scheduling
         )
     }
 
-    async delete(scheduling, user) {
+    async delete(scheduling) {
         return this._colection.delete(
-            `financas/${user.email}/transacoes`,
-            scheduling.id
+            `scheduling/${scheduling.id}`,
+            
         )
     }
 
-    async search(user) {
-        const path = `financas/${user.email}/transacoes`
+    async search() {
+        const path = `scheduling`
         return await this._colection.search(path, 'data', 'asc')
     }
 

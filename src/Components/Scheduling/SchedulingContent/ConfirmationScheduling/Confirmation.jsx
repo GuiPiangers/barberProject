@@ -6,19 +6,31 @@ import { pushSchedulings } from '../../../../logic/db/scheduling';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
+import ServicosTransacao from '../../../../logic/core/ServiceScheduling';
 
 
 export default function Confirmation(){
-    const {stateScheduling} = useOptionContext()
+    const {stateScheduling, user} = useOptionContext()
 
     function handleOnClick(){
         const newScheduling = {
-            professional: stateScheduling.professional.id,
-            service: stateScheduling.service.id,
+            professional: {
+                id: stateScheduling.professional.id,
+                name: stateScheduling.professional.name
+            },
+            service: {
+                id: stateScheduling.service.id,
+                name: stateScheduling.service.name
+            },
+            client: {
+                id: user.id,
+                name: user.name
+            },
             date: stateScheduling.date,
             time: stateScheduling.hour,
-            id: uuidv4()
         }
+        const fireBaseScheduling = new ServicosTransacao
+        fireBaseScheduling.save(newScheduling)
         pushSchedulings(newScheduling)
     }
     

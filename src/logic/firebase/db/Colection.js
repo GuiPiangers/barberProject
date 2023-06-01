@@ -40,8 +40,8 @@ export default class Colection{
         const db = getFirestore(app)
         const collectionRef = collection(db, path)
         const filter = []
-        const NewOrder = order ? [orderBy(order, direction)] : []
-        const consult = query(collectionRef, ...filter, ...order)
+        const newOrder = order ? [orderBy(order, direction)] : []
+        const consult = query(collectionRef, ...filter, ...newOrder)
         const result = await getDocs(consult)
         return result.docs.map(this._convertData) ?? []
     }
