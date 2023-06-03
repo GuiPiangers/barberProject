@@ -7,9 +7,8 @@ export default function MySchedulings(){
     useEffect(()=>{
         async function loadSchedulings(){
             const fireBaseScheduling = new ServicosTransacao
-            console.log(await fireBaseScheduling.search())
             setSchedulings(await fireBaseScheduling.search())
-
+            console.log(schedulings)
         }
         loadSchedulings()
     }, [])
@@ -18,9 +17,9 @@ export default function MySchedulings(){
         <div>
             My Schedulins
             <ul>
-                {schedulings.map((scheduling, index) =>{
+                {schedulings.map((scheduling, index) =>
                     <li key={index}>{scheduling.date}</li>
-                })}
+                )}
             </ul>
         </div>
     )

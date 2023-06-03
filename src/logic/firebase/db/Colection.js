@@ -41,7 +41,7 @@ export default class Colection{
         const collectionRef = collection(db, path)
         const filter = []
         const newOrder = order ? [orderBy(order, direction)] : []
-        const consult = query(collectionRef, ...filter, ...newOrder)
+        const consult = query(collectionRef)
         const result = await getDocs(consult)
         return result.docs.map(this._convertData) ?? []
     }
