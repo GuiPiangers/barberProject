@@ -13,14 +13,14 @@ import { v4 as uuidv4 } from 'uuid'
 import { app } from '../config/app'
 
 export default class Colection{
-    async save(path, enty, id){
+    async set(path, entity, id){
         const db = getFirestore(app)
-        const idEnd = id ?? enty.id ?? uuidv4()
+        const idEnd = id ?? entity.id ?? uuidv4()
         const docRef = doc(db, path, idEnd)
-        await setDoc(docRef, enty)
+        await setDoc(docRef, entity)
 
         return{
-            ...enty, id: enty.id ?? idEnd
+            ...entity, id: entity.id ?? idEnd
         }
     }
     async delete(path, id){
@@ -68,10 +68,10 @@ export default class Colection{
     _convertData(snapshot){
         if(!snapshot.exists()) return null
 
-        const enty = { ...snapshot.data(), id: snapshot.id }
-        if (!enty) return enty
-        return Object.keys(enty).reduce((obj, atributo) => {
-            const value = enty[atributo]
+        const entity = { ...snapshot.data(), id: snapshot.id }
+        if (!entity) return entity
+        return Object.keys(entity).reduce((obj, atributo) => {
+            const value = entity[atributo]
             return { ...obj, [atributo]: value.toDate?.() ?? value }
         }, {})
     }

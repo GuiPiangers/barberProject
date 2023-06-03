@@ -1,0 +1,42 @@
+.forms-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 380px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.checkbox-container{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.checkbox-container *{
+    cursor: pointer;
+}
+
+
+.input{
+    padding: 6px 8px;
+    border: 1px solid black;
+    background-color: transparent;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
