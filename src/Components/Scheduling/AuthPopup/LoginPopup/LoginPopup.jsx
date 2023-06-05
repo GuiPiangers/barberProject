@@ -2,11 +2,13 @@ import Input from '../Input'
 import Button from '../../../usual/Button/Button'
 import {FcGoogle} from 'react-icons/fc'
 import useOptionContext from '../../../../data/hooks/useOptionContext'
+import { useState } from 'react'
 
 export default function LoginPopup({handleIsLogin}){
 
-    const {loginGoogle} = useOptionContext()
-
+    const {loginGoogle, loginEmailPassowrd} = useOptionContext()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     function hlandleOnClick(){
         handleIsLogin(false)
@@ -16,14 +18,41 @@ export default function LoginPopup({handleIsLogin}){
     <form className='popup-form' onSubmit={(e) => e.preventDefault()}>
         <h2 className='form__title'>Acessar conta</h2>
 
-        <Input name='Email:' type='email' required placeholder="exemplo@gmail.com"/>
-        <Input name='Senha:' type='password' required placeholder="*********"/>
+        <Input 
+            name='Email:' 
+            type='email' 
+            value={email}
+            onChange={(event)=>setEmail(event.target.value)}
+            required 
+            placeholder="exemplo@gmail.com"
+        />
+        <Input 
+            name='Senha:' 
+            type='password' 
+            value={password}
+            onChange={(event)=>setPassword(event.target.value)}
+            required 
+            placeholder="*********"
+        />
 
-        <Button customClass='button--primary button--big' style={{maxHeight: '38px', margin: '4px 0'}}>Login</Button>
+        <Button 
+            customClass='button--primary button--big' 
+            style={{maxHeight: '38px', margin: '4px 0'}}
+            onClick={() => loginEmailPassowrd(email, password)}
+        >
+            Login
+        </Button>
+
         <p style={{margin: '4px 0'}}>ou</p>
-        <Button style={{maxHeight: '38px', gap:'16px'}} customClass='button--primary button--big' onClick={()=> loginGoogle()}>
+
+        <Button 
+            style={{maxHeight: '38px', gap:'16px'}} 
+            customClass='button--primary button--big' 
+            onClick={()=> loginGoogle()}
+        >
             {<FcGoogle size={24}/>}Entrar com Google
         </Button>
+
         <p style={{margin: '16px 0'}}>Não possui uma conta? <span onClick={hlandleOnClick}>Cadastrar</span></p>
     </form>
     )

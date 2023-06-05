@@ -1,6 +1,8 @@
 import {
     GoogleAuthProvider, 
     getAuth, 
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
     onIdTokenChanged, 
     signInWithPopup, 
     signOut
@@ -18,6 +20,14 @@ export default class Authentication{
 
     async loginGoogle(){
         const resp = await signInWithPopup(this._auth, new GoogleAuthProvider())
+        return this._convertUser(resp.user)
+    }
+    async loginEmailPassword(email, password){
+        const resp = await signInWithEmailAndPassword(this._auth, email, password)
+        return this._convertUser(resp.user)
+    }
+    async createUserEmailPassword(email, password){
+        const resp = await createUserWithEmailAndPassword(this._auth, email, password)
         return this._convertUser(resp.user)
     }
     async logout(){

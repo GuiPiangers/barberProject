@@ -15,6 +15,14 @@ export function ContextProvider({children}){
         const loggedUser = await users.loginGoogle()
         setUser(loggedUser)
     }
+    async function loginEmailPassowrd(email, password){
+        const loggedUser = await users.loginEmailPassword(email, password)
+        setUser(loggedUser)
+    }
+    async function singUpEmailPassowrd(email, password){
+        const loggedUser = await users.createUserEmailPassword(email, password)
+        setUser(loggedUser)
+    }
     async function logout(){
         await users.logout()
         setUser(null)
@@ -95,7 +103,9 @@ export function ContextProvider({children}){
         <optionContext.Provider value={{
             loginGoogle,
             logout,
-            setNewUser: updateUser,
+            updateUser,
+            loginEmailPassowrd,
+            singUpEmailPassowrd,
             loading,
             user,
             stateScheduling, 

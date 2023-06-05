@@ -18,7 +18,22 @@ export default class Users {
         const user = await this._authentication.loginGoogle()
         if (!user) return null
 
-        let userData = await this.search(user.email)
+        let userData = await this.search(user.id)
+        if (!userData) userData = await this.set(user)
+
+        return { ...user, ...userData }
+    }
+    async loginEmailPassword(email, password){
+        const user = await this._authentication.loginEmailPassword(email, password)
+        if (!user) return null
+
+        return { ...user, ...userData }
+    }
+    async createUserEmailPassword(email, password){
+        const user = await this._authentication.createUserEmailPassword(email, password)
+        if (!user) return null
+
+        let userData = await this.search(user.id)
         if (!userData) userData = await this.set(user)
 
         return { ...user, ...userData }
