@@ -4,9 +4,9 @@ import Colection from "../firebase/db/Colection";
 export default class Services {
     _colection = new Colection()
 
-    async save(scheduling) {
+    async set(scheduling) {
         console.log(scheduling)
-        return this._colection.save(
+        return this._colection.set(
             `scheduling`, scheduling
         )
     }

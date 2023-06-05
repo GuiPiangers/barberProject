@@ -23,8 +23,8 @@ export default function SchedulingServices(){
             src={service.img}
             name={service.name}
             price={service.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
-            id={service.id}
-            key={service.id}
+            id={service.name}
+            key={service.name}
         />))
     }
     return(

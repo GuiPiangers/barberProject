@@ -1,8 +1,6 @@
 import './Confirmation.css'
 import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
-import { v4 as uuidv4 } from 'uuid';
 import useOptionContext from "../../../../data/hooks/useOptionContext";
-import { pushSchedulings } from '../../../../logic/db/scheduling';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
@@ -18,20 +16,17 @@ export default function Confirmation(){
                 id: stateScheduling.professional.id,
                 name: stateScheduling.professional.name
             },
-            service: {
-                id: stateScheduling.service.id,
-                name: stateScheduling.service.name
-            },
             client: {
                 id: user.id,
                 name: user.name
             },
+            service: stateScheduling.service.name,
             date: stateScheduling.date,
             time: stateScheduling.hour,
         }
+
         const fireBaseScheduling = new Services
-        fireBaseScheduling.save(newScheduling)
-        pushSchedulings(newScheduling)
+        fireBaseScheduling.set(newScheduling)
     }
     
 

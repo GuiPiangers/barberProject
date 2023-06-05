@@ -2,21 +2,20 @@ import './ServiceOption.css'
 import useOptionContext from "../../../../data/hooks/useOptionContext";
 
 
-export default function ServiceOption({src, name, price, id}){
+export default function ServiceOption({src, name, price}){
     const {stateScheduling, dispatch} = useOptionContext()
 
     function handleOnClick(){
         dispatch({type: 'setService', value: {
             name: name,
             price: price,
-            id: id
         }})
     }
 
     return(
         <div 
             className={`service-option 
-            ${stateScheduling.service?.id ===  id? 'service-option--selected' : ''}`}
+            ${stateScheduling.service?.name ===  name? 'service-option--selected' : ''}`}
             onClick={handleOnClick}
         >
             <div 

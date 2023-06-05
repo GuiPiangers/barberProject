@@ -18,7 +18,7 @@ export default function ProfessionalsScheduling(){
 
     useEffect(()=>{
         async function returnProfessionals(){
-            setProfessionals(await professionalList.searchByService(stateScheduling.service.id))
+            setProfessionals(await professionalList.searchByService(stateScheduling.service.name))
         }
         returnProfessionals()
     }, [])
