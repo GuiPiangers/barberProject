@@ -1,4 +1,4 @@
-import Services from "../core/ServiceScheduling"
+import Services from "../core/Schedulings"
 
 // Formatting functions -----------------------------------------------
 

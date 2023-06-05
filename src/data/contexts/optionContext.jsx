@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useReducer } from "react"
-import Authentication from "../../logic/firebase/auth/Auth"
+import Users from "../../logic/core/Users"
 
 const optionContext = createContext(null)
 export default optionContext
@@ -10,23 +10,31 @@ export function ContextProvider({children}){
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
     
-    const auth = new Authentication()
+    const users = new Users
     async function loginGoogle(){
-        const loggedUser = await auth.loginGoogle()
+        const loggedUser = await users.loginGoogle()
         setUser(loggedUser)
     }
     async function logout(){
-        await auth.logout()
+        await users.logout()
         setUser(null)
     }
 
     useEffect(()=>{
-        const cancel = auth.observeUser((user)=>{
+        const cancel = users.observeAuthentication((user)=>{
             setUser(user)
             setLoading(false)
         })
         return () => cancel()
     },[])
+
+    async function updateUser(newUser) {
+        if (usuario && usuario.email !== newUser.email) return logout()
+        if (usuario && newUser && usuario.email === newUser.email) {
+            await users.set(newUser)
+            setUsuario(newUser)
+        }
+    }
 
     function setBackStepsAnimation(stepNumber){
         const steps = document.querySelectorAll('.step-container')
@@ -87,6 +95,7 @@ export function ContextProvider({children}){
         <optionContext.Provider value={{
             loginGoogle,
             logout,
+            setNewUser: updateUser,
             loading,
             user,
             stateScheduling, 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Services from "../../logic/core/ServiceScheduling"
+import Services from "../../logic/core/Schedulings"
 
 export default function MySchedulings(){
 
