@@ -1,4 +1,4 @@
-import { filterSchedulings } from "./scheduling"
+import Services from "../core/ServiceScheduling"
 
 // Formatting functions -----------------------------------------------
 
@@ -50,7 +50,8 @@ function timeList(timesWork, serviceDuration){
 
 
 export async function availableTime(professional, date){
-    const schedulings = await filterSchedulings(professional, date)
+    const schedulingsList = new Services
+    const schedulings = await schedulingsList.searchByProfessionalAndDate(professional, date)
     const schedulingsTime = schedulings.map(scheduling => scheduling.time)
     const currentDate = new Date()
 

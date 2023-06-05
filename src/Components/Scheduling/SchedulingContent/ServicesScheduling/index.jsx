@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
-
-import { getServices } from '../../../../logic/db/service'
+import Services from '../../../../logic/core/Services'
 
 import GridContainer from '../../../template/GridContainer/GridContainer'
 import ServiceOption from './ServiceOption'
 
 export default function SchedulingServices(){
+
+    const servicesList = new Services
     
     const [services, setServices] = useState([])
 
     useEffect(()=>{
         async function returnServices(){
-            setServices(await getServices())
+            setServices(await servicesList.search())
         }
         returnServices()
     }, [])
@@ -21,7 +22,7 @@ export default function SchedulingServices(){
         <ServiceOption
             src={service.img}
             name={service.name}
-            price={service.price}
+            price={service.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
             id={service.id}
             key={service.id}
         />))

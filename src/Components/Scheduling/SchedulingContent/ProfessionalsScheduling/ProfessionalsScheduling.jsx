@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import useOptionContext from '../../../../data/hooks/useOptionContext'
 import { getProfessionalsConverted } from '../../../../logic/db/prefessional'
+import Professionals from '../../../../logic/core/Professionals'
+import Services from '../../../../logic/core/Services'
 
 import './ProfessionalsScheduling.css'
 
@@ -9,12 +11,14 @@ import ProfessionalsCardScheduling from './ProfessionalCardScheduling';
 
 export default function ProfessionalsScheduling(){
 
+    const professionalList = new Professionals
+
     const [professionals, setProfessionals] = useState([])
     const {stateScheduling} = useOptionContext()
 
     useEffect(()=>{
         async function returnProfessionals(){
-            setProfessionals(await getProfessionalsConverted(stateScheduling.service.id))
+            setProfessionals(await professionalList.searchByService(stateScheduling.service.id))
         }
         returnProfessionals()
     }, [])

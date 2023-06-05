@@ -22,5 +22,11 @@ export default class Professionals {
         const path = `professional`
         return await this._colection.search(path)
     }
+    async searchByService(service) {
+        const path = `professional`
+        return await this._colection.searchWithFilters(path, [
+            { atribute: 'services', op: "array-contains", value: service },
+        ])
+    }
 
 }

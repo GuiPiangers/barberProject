@@ -23,9 +23,11 @@ export default function AddForm(){
     const professional = new Professionals
 
     function setService(){
+        const price = servicePrice
+        console.log(price)
         const entity = {
             name: serviceName,
-            price: servicePrice,
+            price: price,
             description: serviceDescription,
             img: serviceImg
         }
@@ -111,7 +113,7 @@ export default function AddForm(){
                             type='number' 
                             placeholder='Preço do serviço'
                             value={servicePrice}
-                            onChange={event=>setServicePrice(event.target.value)}
+                            onChange={event=>setServicePrice(+event.target.value)}
                         />
                         <Input 
                             name='Descrição:' 

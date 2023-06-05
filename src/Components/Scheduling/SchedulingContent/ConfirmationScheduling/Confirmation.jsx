@@ -6,7 +6,7 @@ import { pushSchedulings } from '../../../../logic/db/scheduling';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
-import ServicosTransacao from '../../../../logic/core/ServiceScheduling';
+import Services from '../../../../logic/core/ServiceScheduling';
 
 
 export default function Confirmation(){
@@ -29,7 +29,7 @@ export default function Confirmation(){
             date: stateScheduling.date,
             time: stateScheduling.hour,
         }
-        const fireBaseScheduling = new ServicosTransacao
+        const fireBaseScheduling = new Services
         fireBaseScheduling.save(newScheduling)
         pushSchedulings(newScheduling)
     }

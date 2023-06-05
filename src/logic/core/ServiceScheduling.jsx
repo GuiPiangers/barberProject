@@ -1,7 +1,7 @@
 import Colection from "../firebase/db/Colection";
 
 
-export default class ServicosTransacao {
+export default class Services {
     _colection = new Colection()
 
     async save(scheduling) {
@@ -23,4 +23,11 @@ export default class ServicosTransacao {
         return await this._colection.search(path, 'data', 'asc')
     }
 
+    async searchByProfessionalAndDate(professional, date) {
+        const path = `scheduling`
+        return await this._colection.searchWithFilters(path, [
+            { atribute: 'professional.id', op: "==", value: professional },
+            { atribute: 'date', op: "==", value: date },
+        ])
+    }
 }
