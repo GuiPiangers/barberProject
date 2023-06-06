@@ -6,6 +6,10 @@
     color: var(--color_title_light);
 }
 
+.optional-link{
+    color: var(--color_title_light);
+    text-decoration: none;
+}
 
 .logout{
     color: rgb(192, 72, 72);

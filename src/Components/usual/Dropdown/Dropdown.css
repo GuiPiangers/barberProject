@@ -16,8 +16,11 @@
 }
 
 .dropdown__option{
-    padding: 8px 16px;
     cursor: pointer;
+    display: flex;
+}
+.dropdown__option > *{
+    padding: 8px 16px;
 }
 .dropdown__option:hover{
     background-color: #343434;

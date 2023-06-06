@@ -1,11 +1,13 @@
 import './Header.css'
 
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import useAuthContext from '../../../data/hooks/useAuthContext'
+
 import Header from "../../template/Header/Header"
 import Profile from "./Profile/Profile"
 import Dropdown from '../../usual/Dropdown/Dropdown'
 import DropdownOption from '../../usual/Dropdown/DropdownOption'
-import { useState } from 'react'
 
 
 export default function HeaderScheduling(){
@@ -25,10 +27,14 @@ export default function HeaderScheduling(){
                     style={{maxWidth: '100%', with: 'fit-content'}}
                 >
                     <DropdownOption>
-                        Agendar
+                        <Link to="/account/newscheduling" className='optional-link'>
+                            Agendar
+                        </Link>
                     </DropdownOption>
                     <DropdownOption >
-                        Meus agendamentos
+                        <Link to="/account/myscheduling" className='optional-link'>
+                            Meus agendamentos
+                        </Link>
                     </DropdownOption>
                     <DropdownOption onClickFunction={logout}>
                         <div className='logout'>
