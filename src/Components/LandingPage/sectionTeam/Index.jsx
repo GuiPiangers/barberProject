@@ -1,7 +1,7 @@
 import './Team.css'
 
 import { useState, useEffect } from 'react';
-import { getProfessionalsConverted } from '../../../logic/db/prefessional';
+import Professinals from '../../../logic/core/Professionals'
 
 import BoxContainer from "../../template/BoxContainer/BoxContainer";
 import Title from "../../usual/Title/Title";
@@ -11,10 +11,11 @@ import ProfessionalCard from '../../usual/ProfessionalCard/ProfessionalCard';
 export default function Team(){
 
     const [professionals, setProfessionals] = useState([])
+    const profesinalsList = new Professinals
 
     useEffect(()=>{
         async function returnProfessionals(){
-            setProfessionals(await getProfessionalsConverted())
+            setProfessionals(await profesinalsList.search())
         }
         returnProfessionals()
     }, [])

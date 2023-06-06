@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import useOptionContext from '../../../../data/hooks/useOptionContext'
-import { getProfessionalsConverted } from '../../../../logic/db/prefessional'
 import Professionals from '../../../../logic/core/Professionals'
-import Services from '../../../../logic/core/Services'
 
 import './ProfessionalsScheduling.css'
 

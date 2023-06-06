@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useWindowSize from "../../../data/hooks/useWindowSize";
-import { getServices } from "../../../logic/db/service";
+import ServicesList from '../../../logic/core/Services'
 import './Service.css'
 
 import BoxContainer from "../../template/BoxContainer/BoxContainer";
@@ -11,12 +11,13 @@ import ServiceCard from "./ServiceCard/ServiceCard";
 import ServiceSlideContainer from "./ServiceSlideContainer";
 
 export default function Services(){
-    const [ , windowWidth] = useWindowSize()
+    const {windowWidth} = useWindowSize()
     const [services, setServices] = useState([])
+    const servicesList = new ServicesList
 
     useEffect(()=>{
         async function returnServices(){
-            setServices(await getServices())
+            setServices(await servicesList.search())
         }
         returnServices()
     }, [])

@@ -10,7 +10,7 @@ import HeroInfoContainer from './HeroInfo/HeroInfoContainer'
 import HeroInfoSlideContainer from './HeroInfo/HeroInfoSlideContainer'
 
 export default function Hero(){
-    const [ , windowWidth] = useWindowSize()
+    const {windowWidth} = useWindowSize()
 
     function renderHeroInfo(){
         return(
