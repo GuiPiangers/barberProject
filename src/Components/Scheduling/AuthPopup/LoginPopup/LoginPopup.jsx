@@ -1,11 +1,11 @@
 import Input from '../../../usual/Input/Input'
-import useOptionContext from '../../../../data/hooks/useOptionContext'
+import useAuthContext from '../../../../data/hooks/useAuthContext'
 import { useState } from 'react'
 import FormPopup from '../FormPopup/FormPopup'
 
 export default function LoginPopup({handleIsLogin, isLogin}){
 
-    const {loginEmailPassowrd} = useOptionContext()
+    const {loginEmailPassowrd} = useAuthContext()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 

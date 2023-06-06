@@ -1,5 +1,6 @@
 import './SchedulingContent.css'
 import useOptionContext from '../../../data/hooks/useOptionContext'
+import useAuthContext from '../../../data/hooks/useAuthContext'
 import BoxContainer from '../../template/BoxContainer/BoxContainer'
 
 import AuthPopup from '../AuthPopup/Index'
@@ -11,7 +12,9 @@ import Confirmation from './ConfirmationScheduling/Confirmation'
 import Loading from '../../usual/Loading/Loading'
 
 export default function SchedulingContent(){
-    const {activeStep, setActiveStep, user, loading} = useOptionContext()
+    
+    const {user, loading} = useAuthContext()
+    const {activeStep, setActiveStep} = useOptionContext()
 
 
     function renderStepScheduling(){

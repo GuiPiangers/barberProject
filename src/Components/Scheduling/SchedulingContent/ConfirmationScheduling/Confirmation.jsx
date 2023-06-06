@@ -1,6 +1,7 @@
 import './Confirmation.css'
 import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
 import useOptionContext from "../../../../data/hooks/useOptionContext";
+import useAuthContext from '../../../../data/hooks/useAuthContext';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
@@ -8,7 +9,8 @@ import Services from '../../../../logic/core/Schedulings';
 
 
 export default function Confirmation(){
-    const {stateScheduling, user} = useOptionContext()
+    const {stateScheduling} = useOptionContext()
+    const {user} = useAuthContext()
 
     function handleOnClick(){
         const newScheduling = {

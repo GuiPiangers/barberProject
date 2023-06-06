@@ -1,5 +1,4 @@
 import './NewScheduling.css'
-import optionContext from '../../../data/contexts/optionContext'
 import { ContextProvider } from '../../../data/contexts/optionContext';
 
 import HeaderScheduling from '../../Scheduling/Header/HeaderScheduling';

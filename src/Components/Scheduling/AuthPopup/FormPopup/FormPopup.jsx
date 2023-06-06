@@ -2,11 +2,11 @@ import './FormPopup.css'
 import {FcGoogle} from 'react-icons/fc'
 import Form from '../../../usual/Form/Form'
 import ButtonAuth from "../ButtonAuth";
-import useOptionContext from '../../../../data/hooks/useOptionContext';
+import useAuthContext from '../../../../data/hooks/useAuthContext';
 
 export default function FormPopup({children, title, buttonText, submitButtonClick, handleIsLogin, isLogin}){
     
-    const {loginGoogle} = useOptionContext()
+    const {loginGoogle} = useAuthContext()
 
 
     function hlandleOnToggleLogin(){

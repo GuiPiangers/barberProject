@@ -1,13 +1,11 @@
 import Input from '../../../usual/Input/Input'
-import Button from '../../../usual/Button/Button'
-import {FcGoogle} from 'react-icons/fc'
 import { useState } from 'react'
-import useOptionContext from '../../../../data/hooks/useOptionContext'
+import useAuthContext from '../../../../data/hooks/useAuthContext'
 import FormPopup from '../FormPopup/FormPopup'
 
 export default function SignUpPopup({handleIsLogin, isLogin}){
 
-    const {singUpEmailPassowrd} = useOptionContext()
+    const {singUpEmailPassowrd} = useAuthContext()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')

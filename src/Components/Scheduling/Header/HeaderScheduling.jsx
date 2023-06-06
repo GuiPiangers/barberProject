@@ -1,6 +1,6 @@
 import './Header.css'
 
-import useOptionContext from "../../../data/hooks/useOptionContext"
+import useAuthContext from '../../../data/hooks/useAuthContext'
 import Header from "../../template/Header/Header"
 import Profile from "./Profile/Profile"
 import Dropdown from '../../usual/Dropdown/Dropdown'
@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 export default function HeaderScheduling(){
 
-    const {user, logout} = useOptionContext()
+    const {user, logout} = useAuthContext()
     const [dropdownVisibility, setDropdownVisibility] = useState()
     
     function toggleDropdownVisibility(){

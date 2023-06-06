@@ -1,6 +1,5 @@
 import './Steps.css'
 
-import { useEffect } from 'react'
 import useOptionContext from '../../../data/hooks/useOptionContext'
 
 export default function Step({text, stepNumber}){

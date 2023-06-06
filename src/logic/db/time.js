@@ -2,12 +2,12 @@ import Services from "../core/Schedulings"
 
 // Formatting functions -----------------------------------------------
 
-function converToDate(date, time = '00:00'){
+function _converToDate(date, time = '00:00'){
     const dateTime = new Date(`${date}T${time}-03:00`)
     return dateTime
 }
 
-function formatTime(date){
+function _formatTime(date){
     const formatedTime = Intl.DateTimeFormat("pt-BR", {
         hour: 'numeric',
         minute: 'numeric'
@@ -36,11 +36,11 @@ function timeList(timesWork, serviceDuration){
     const times = []
 
     timesWork.forEach(timeWork => {
-        const currentTime = converToDate('2023-05-30', timeWork.start)
-        const endTime = converToDate('2023-05-30', timeWork.end)
+        const currentTime = _converToDate('2023-05-30', timeWork.start)
+        const endTime = _converToDate('2023-05-30', timeWork.end)
 
         while(currentTime <= endTime){
-            times.push(formatTime(currentTime))
+            times.push(_formatTime(currentTime))
             currentTime.setMinutes(currentTime.getMinutes() + serviceDuration)
         }
     });
@@ -62,7 +62,7 @@ export async function availableTime(professional, date){
     })
 
     if(date && date === currentDate.toLocaleDateString()){
-        return availableTimes.filter(time => time >= formatTime(currentDate))
+        return availableTimes.filter(time => time >= _formatTime(currentDate))
     }
 
 
