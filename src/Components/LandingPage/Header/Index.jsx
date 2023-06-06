@@ -7,7 +7,7 @@ export default function LandingHeader({isTransparent}){
     return(
         <Header customClass={`header--justify-end ${isTransparent ? 'header--transparent' : ''}`}>
             <NavMenu/>
-            <Button customClass='button--landin-page' link='/scheduling'>
+            <Button customClass='button--landin-page' link='/account/newscheduling'>
                 Agendar
             </Button>
         </Header>

@@ -4,14 +4,11 @@ import { ContextProvider } from '../../../data/contexts/optionContext';
 import HeaderScheduling from '../../Scheduling/Header/HeaderScheduling';
 import SchedulingContent from "../../Scheduling/SchedulingContent";
 
-export default function Scheduling(){
+export default function NewScheduling(){
 
     return(
-        <ContextProvider>
-            <HeaderScheduling/>
-            <div className="new-scheduling">
-                <SchedulingContent/>
-            </div>
-        </ContextProvider>
+        <div className="new-scheduling">
+            <SchedulingContent/>
+        </div>
     )
 } 

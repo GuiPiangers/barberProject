@@ -14,7 +14,7 @@ export default function ServiceCard({img, name, description, price}){
                 
                 <div className="service-card__footer">
                     <span className="service-card__price">{price?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                    <Button customClass='button--landin-page' link='/scheduling'>
+                    <Button customClass='button--landin-page' link='/account/newscheduling'>
                         Agendar
                     </Button>
                 </div>
