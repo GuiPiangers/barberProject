@@ -1,0 +1,14 @@
+.form-popup p{
+    text-align: center;
+}
+
+.form-popup span{
+    color:  var(--color_emphasis);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-popup span:hover{
+    color: var(--color_title_light);
+}

@@ -9,7 +9,7 @@ export default class Users {
         return this._authentication.observeUser(async user => {
             observer(user ? {
                 ...user,
-                ...await this.search(user.email)
+                ...await this.search(user.id)
             } : null)
         })
     }
@@ -27,14 +27,16 @@ export default class Users {
         const user = await this._authentication.loginEmailPassword(email, password)
         if (!user) return null
 
+        let userData = await this.search(user.id)
         return { ...user, ...userData }
     }
-    async createUserEmailPassword(email, password){
+    async createUserEmailPassword(email, password, name){
         const user = await this._authentication.createUserEmailPassword(email, password)
         if (!user) return null
+        const newUser = {...user, name: name, image: 'http://localhost:5173/img/default-user.png'}
 
         let userData = await this.search(user.id)
-        if (!userData) userData = await this.set(user)
+        if (!userData) userData = await this.set(newUser)
 
         return { ...user, ...userData }
     }
@@ -49,9 +51,9 @@ export default class Users {
         )
     }
 
-    async search(email) {
+    async search(id) {
         return await this._colection.getById(
-            'users', email
+            'users', id
         )
     }
 }

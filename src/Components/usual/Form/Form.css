@@ -1,0 +1,19 @@
+.form{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 32px; 
+}
+
+.form > *{
+    width: 100%;
+}
+
+.form--dark{
+    color: var(--color_title_light);
+    background-color: #343434;
+}
+.form--light{
+    color: var(--color_title_dark);
+    background-color: #f1f1f1;
+}

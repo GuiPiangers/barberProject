@@ -19,8 +19,8 @@ export function ContextProvider({children}){
         const loggedUser = await users.loginEmailPassword(email, password)
         setUser(loggedUser)
     }
-    async function singUpEmailPassowrd(email, password){
-        const loggedUser = await users.createUserEmailPassword(email, password)
+    async function singUpEmailPassowrd(email, password, name){
+        const loggedUser = await users.createUserEmailPassword(email, password, name)
         setUser(loggedUser)
     }
     async function logout(){
@@ -29,7 +29,7 @@ export function ContextProvider({children}){
     }
 
     useEffect(()=>{
-        const cancel = users.observeAuthentication((user)=>{
+        const cancel = users.observeAuthentication(async (user)=>{
             setUser(user)
             setLoading(false)
         })

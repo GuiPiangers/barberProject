@@ -9,6 +9,7 @@ export default function SignUpPopup({handleIsLogin}){
     const {singUpEmailPassowrd} = useOptionContext()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
 
     function hlandleOnClick(){
         handleIsLogin(true)
@@ -19,7 +20,13 @@ export default function SignUpPopup({handleIsLogin}){
     <form className='popup-form' onSubmit={event => event.preventDefault()}>
         <h2 className='form__title'>Criar conta</h2>
 
-        <Input name='Nome:' type='text' required placeholder="Ex.: Julio Cezar"/>
+        <Input 
+            name='Nome:' 
+            type='text' 
+            value={name}
+            onChange={event => setName(event.target.value)}
+            required 
+            placeholder="Ex.: Julio Cezar"/>
         <Input 
             name='Email:' 
             type='email' 
@@ -43,7 +50,7 @@ export default function SignUpPopup({handleIsLogin}){
         <Button 
             customClass='button--primary button--big' 
             style={{margin: '4px 0'}}
-            onClick = {()=> singUpEmailPassowrd(email, password)}
+            onClick = {()=> singUpEmailPassowrd(email, password, name)}
         >
             Criar conta
         </Button>

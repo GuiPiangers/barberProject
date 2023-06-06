@@ -1,0 +1,16 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input{
+    margin-bottom: 16px;
+    padding: 6px 8px;
+    border: 1px solid #f1f1f1;
+    border-color: aqua;
+    width: 318px;
+    background-color: transparent;
+    font-size: 16px;
+    outline: none;
+}
