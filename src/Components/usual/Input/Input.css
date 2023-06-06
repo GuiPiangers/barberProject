@@ -7,10 +7,14 @@
 .input{
     margin-bottom: 16px;
     padding: 6px 8px;
-    border: 1px solid #f1f1f1;
-    border-color: aqua;
+    border: 1px solid var(--color_title_light);
     width: 318px;
     background-color: transparent;
+    color: var(--color_title_light);
     font-size: 16px;
     outline: none;
+}
+
+.input:focus{
+    border-color: var(--color_emphasis);
 }

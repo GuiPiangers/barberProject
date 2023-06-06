@@ -1,3 +1,9 @@
+.form__title{
+    font-size: 32px;
+    margin: 16px;
+    text-align: center;
+}
+
 .form-popup p{
     text-align: center;
 }

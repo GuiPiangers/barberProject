@@ -2,8 +2,17 @@ import './FormPopup.css'
 import {FcGoogle} from 'react-icons/fc'
 import Form from '../../../usual/Form/Form'
 import ButtonAuth from "../ButtonAuth";
+import useOptionContext from '../../../../data/hooks/useOptionContext';
 
-export default function FormPopup({children, title, buttonText, submitButtonClick, changePopup}){
+export default function FormPopup({children, title, buttonText, submitButtonClick, handleIsLogin, isLogin}){
+    
+    const {loginGoogle} = useOptionContext()
+
+
+    function hlandleOnToggleLogin(){
+        handleIsLogin(value => !value)
+    }
+    
     return(
     <Form customClass='form--dark form-popup'>
         <h2 className='form__title'>{title}</h2>
@@ -16,11 +25,14 @@ export default function FormPopup({children, title, buttonText, submitButtonClic
             ou
         </p>
 
-        <ButtonAuth onClick={submitButtonClick}>
+        <ButtonAuth onClick={loginGoogle}>
             <FcGoogle size={24}/> Entrar com Google
         </ButtonAuth>
 
-        <p style={{margin: '16px 0'}}>{changePopup}</p>
+        <p style={{margin: '16px 0'}}>{isLogin 
+            ? <>Não possui uma conta? <span onClick={hlandleOnToggleLogin}>Cadastrar</span></> 
+            : <>Já possui uma conta? <span onClick={hlandleOnToggleLogin}>Entrar</span></>}
+        </p>
     </Form>
     )
 }

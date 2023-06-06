@@ -10,9 +10,8 @@ export default function AuthPopup(){
 
     return(
         <div className='popup-wrapper'>
-            <LoginPopup handleIsLogin={setIslogin}/> 
-            {/* {isLogin ? <LoginPopup handleIsLogin={setIslogin}/> 
-                : <SignUpPopup handleIsLogin={setIslogin}/>} */}
+            {isLogin ? <LoginPopup handleIsLogin={setIslogin} isLogin={isLogin}/> 
+                : <SignUpPopup handleIsLogin={setIslogin} isLogin={isLogin}/>}
         </div>
     )
 }
