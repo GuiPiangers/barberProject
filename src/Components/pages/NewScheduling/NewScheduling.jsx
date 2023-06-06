@@ -1,8 +1,6 @@
 import './NewScheduling.css'
-import { ContextProvider } from '../../../data/contexts/optionContext';
 
-import HeaderScheduling from '../../Scheduling/Header/HeaderScheduling';
-import SchedulingContent from "../../Scheduling/SchedulingContent";
+import SchedulingContent from "../../Scheduling/NewScheduling/index";
 
 export default function NewScheduling(){
 

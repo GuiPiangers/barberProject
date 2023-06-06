@@ -1,4 +1,4 @@
-import './SchedulingContent.css'
+import './NewSheduling.css'
 import useOptionContext from '../../../data/hooks/useOptionContext'
 import useAuthContext from '../../../data/hooks/useAuthContext'
 import BoxContainer from '../../template/BoxContainer/BoxContainer'
