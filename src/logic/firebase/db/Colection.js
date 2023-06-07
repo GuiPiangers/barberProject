@@ -23,6 +23,8 @@ export default class Colection{
             ...entity, id: entity.id ?? idEnd
         }
     }
+
+
     async delete(path, id){
         if (!id) return false
 

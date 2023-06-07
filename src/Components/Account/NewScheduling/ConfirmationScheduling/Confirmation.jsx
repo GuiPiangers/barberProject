@@ -1,16 +1,19 @@
 import './Confirmation.css'
 import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
+import { useNavigate } from 'react-router-dom';
 import useOptionContext from "../../../../data/hooks/useOptionContext";
 import useAuthContext from '../../../../data/hooks/useAuthContext';
+import { getTimeStamp } from '../../../../logic/utils/dateTimeConverter';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
-import Services from '../../../../logic/core/Schedulings';
+import Schedulings from '../../../../logic/core/Schedulings';
 
 
 export default function Confirmation(){
-    const {stateScheduling} = useOptionContext()
+    const {stateScheduling, dispatch, setActiveStep} = useOptionContext()
     const {user} = useAuthContext()
+    const navigate = useNavigate()
 
     function handleOnClick(){
         const newScheduling = {
@@ -25,10 +28,15 @@ export default function Confirmation(){
             service: stateScheduling.service.name,
             date: stateScheduling.date,
             time: stateScheduling.hour,
+            timeStamp: getTimeStamp(stateScheduling.date, stateScheduling.hour)
         }
 
-        const fireBaseScheduling = new Services
+        const fireBaseScheduling = new Schedulings
         fireBaseScheduling.set(newScheduling)
+        navigate("/account/myscheduling")
+
+        dispatch({type: 'reset'})
+        setActiveStep(1)
     }
     
 

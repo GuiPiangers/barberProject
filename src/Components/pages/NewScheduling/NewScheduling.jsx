@@ -1,6 +1,6 @@
 import './NewScheduling.css'
 
-import SchedulingContent from "../../Scheduling/NewScheduling/index";
+import SchedulingContent from "../../Account/NewScheduling/index";
 
 export default function NewScheduling(){
 

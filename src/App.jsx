@@ -1,6 +1,7 @@
 import './styles/App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { ContextProvider } from './data/contexts/authContext'
+
 import Accout from './Components/template/Account'
 import LandingPage from './Components/pages/LandingPage'
 import NewScheduling from './Components/pages/NewScheduling/NewScheduling'

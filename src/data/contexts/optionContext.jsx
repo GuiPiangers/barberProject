@@ -53,6 +53,8 @@ export function ContextProvider({children}){
                 return {...state, hour: null, date: action.value}
             case 'setHour':
                 return {...state, hour: action.value}
+            case 'reset':
+                return {...resetedSchedulingState}
             default: 
                 return state
         }

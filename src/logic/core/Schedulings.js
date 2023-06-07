@@ -1,7 +1,7 @@
 import Colection from "../firebase/db/Colection";
 
 
-export default class Services {
+export default class Schedulings {
     _colection = new Colection()
 
     async set(scheduling) {
@@ -11,10 +11,9 @@ export default class Services {
         )
     }
 
-    async delete(scheduling) {
+    async delete(schedulingId) {
         return this._colection.delete(
-            `scheduling/${scheduling.id}`,
-            
+            `scheduling`, schedulingId
         )
     }
 
@@ -29,5 +28,11 @@ export default class Services {
             { atribute: 'professional.id', op: "==", value: professional },
             { atribute: 'date', op: "==", value: date },
         ])
+    }
+    async searchByClientId(clientId) {
+        const path = `scheduling`
+        return await this._colection.searchWithFilters(path, [
+            { atribute: 'client.id', op: "==", value: clientId },
+        ], 'timeStamp', 'asc')
     }
 }
