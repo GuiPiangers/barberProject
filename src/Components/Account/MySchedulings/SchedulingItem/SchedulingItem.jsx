@@ -3,9 +3,12 @@ import Button from  '../../../usual/Button/Button'
 import Schedulings from '../../../../logic/core/Schedulings'
 import { useNavigate } from 'react-router-dom'
 import { convertToJsDate } from '../../../../logic/utils/dateTimeConverter'
+import useMessage from '../../../../data/hooks/useMessage'
 
 export default function SchedulingItem({date, time, service, professional, id}){
     
+    const { setMessage, setMessageType, setVisibleMessage } = useMessage()
+
     const newDate = new Date()
     const nowDate = newDate.toLocaleDateString()
     const nowTime = newDate.toLocaleTimeString()
@@ -13,8 +16,16 @@ export default function SchedulingItem({date, time, service, professional, id}){
     const schedulings = new Schedulings
     const navigate = useNavigate()
 
-    function deleteScheduling(){
-        schedulings.delete(id)
+    async function deleteScheduling(){
+        try{
+            await schedulings.delete(id)
+            setVisibleMessage(true)
+            setMessageType('success')
+            setMessage('Agendamento cancelado com sucesso!')
+        }
+        catch{
+
+        }
     }
 
     function editScheduling(){
@@ -39,7 +50,7 @@ export default function SchedulingItem({date, time, service, professional, id}){
                     </p>
                 </div>
                 
-                {convertToJsDate(nowDate, nowTime) > convertToJsDate(date, time) &&
+                {convertToJsDate(nowDate, nowTime) < convertToJsDate(date, time) &&
                     <div className='scheduling-item__container'>
                         <Button 
                             customClass='button--borderLine'

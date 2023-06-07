@@ -5,7 +5,7 @@ export default function Input({name, customClass , ...props}){
     return(
         <div className="input-container">
             <label htmlFor={id}>{name}</label>
-            <input {...props} className={`input ${customClass}`}/>
+            <input {...props} className={`inputAdd ${customClass}`}/>
         </div>
     )
 }

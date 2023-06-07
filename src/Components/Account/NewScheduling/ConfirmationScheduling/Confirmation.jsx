@@ -3,20 +3,20 @@ import {ImScissors, ImUserTie, ImCalendar} from 'react-icons/im'
 import { useNavigate } from 'react-router-dom';
 import useOptionContext from "../../../../data/hooks/useOptionContext";
 import useAuthContext from '../../../../data/hooks/useAuthContext';
+import useMessage from '../../../../data/hooks/useMessage'
 import { getTimeStamp } from '../../../../logic/utils/dateTimeConverter';
 
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
 import Schedulings from '../../../../logic/core/Schedulings';
 import { useState } from 'react';
-import Message from '../../../usual/Message/Message';
 
 
 export default function Confirmation({id}){
     const { stateScheduling } = useOptionContext()
     const { user } = useAuthContext()
-    const {message, setMessage} = useState('')
-    const {messageType, setMessageType} = useState('')
+    const { setMessage, setMessageType, setVisibleMessage } = useMessage()
+
     const navigate = useNavigate()
 
     function handleOnClick(){
@@ -41,17 +41,20 @@ export default function Confirmation({id}){
         try{
             fireBaseScheduling.set(newScheduling)
             navigate("/account/myscheduling")
+            setVisibleMessage(true)
+            setMessageType('success')
+            setMessage('Agendamento realizado com sucesso!')
         }
         catch{
+            setVisibleMessage(true)
             setMessageType('error')
-            setMessage('Falha ao realizar o agendamento')
+            setMessage('Falha ao realizar o agendamento!')
         }
     }
     
 
  return(
     <div className="confirmation">
-        {message.length && <Message type={messageType} msg={message}/>}
         <ConfirmationItem
             icon={<ImScissors
                 size={24}
