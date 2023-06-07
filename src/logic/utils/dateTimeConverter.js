@@ -1,4 +1,4 @@
-function convertToJsDate(date, time='00:00'){
+export function convertToJsDate(date, time='00:00'){
     const convertedDate = date.split('/').reverse()
     return convertedDate.join('-')
 }

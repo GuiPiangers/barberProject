@@ -8,11 +8,15 @@ import { getTimeStamp } from '../../../../logic/utils/dateTimeConverter';
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
 import Schedulings from '../../../../logic/core/Schedulings';
+import { useState } from 'react';
+import Message from '../../../usual/Message/Message';
 
 
-export default function Confirmation(){
-    const {stateScheduling, dispatch, setActiveStep} = useOptionContext()
-    const {user} = useAuthContext()
+export default function Confirmation({id}){
+    const { stateScheduling } = useOptionContext()
+    const { user } = useAuthContext()
+    const {message, setMessage} = useState('')
+    const {messageType, setMessageType} = useState('')
     const navigate = useNavigate()
 
     function handleOnClick(){
@@ -28,20 +32,26 @@ export default function Confirmation(){
             service: stateScheduling.service.name,
             date: stateScheduling.date,
             time: stateScheduling.hour,
+            id: id,
             timeStamp: getTimeStamp(stateScheduling.date, stateScheduling.hour)
         }
 
         const fireBaseScheduling = new Schedulings
-        fireBaseScheduling.set(newScheduling)
-        navigate("/account/myscheduling")
 
-        dispatch({type: 'reset'})
-        setActiveStep(1)
+        try{
+            fireBaseScheduling.set(newScheduling)
+            navigate("/account/myscheduling")
+        }
+        catch{
+            setMessageType('error')
+            setMessage('Falha ao realizar o agendamento')
+        }
     }
     
 
  return(
     <div className="confirmation">
+        {message.length && <Message type={messageType} msg={message}/>}
         <ConfirmationItem
             icon={<ImScissors
                 size={24}

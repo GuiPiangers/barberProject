@@ -7,10 +7,21 @@ import ProfessionalsScheduling from './ProfessionalsScheduling/ProfessionalsSche
 import ServicesScheduling from './ServicesScheduling/index'
 import ScheduleTime from './ScheduleTime/SheduleTime'
 import Confirmation from './ConfirmationScheduling/Confirmation'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function SchedulingContent(){
     
-    const {activeStep, setActiveStep} = useOptionContext()
+    const {activeStep, setActiveStep, dispatch} = useOptionContext()
+    const {state} = useLocation()
+
+    useEffect(()=>{
+        function resetNewScheduling(){
+            dispatch({type: 'reset'})
+            setActiveStep(1)
+        }
+        return resetNewScheduling()   
+    }, [])
 
 
     function renderStepScheduling(){
@@ -22,7 +33,7 @@ export default function SchedulingContent(){
             case 3:
                 return <ScheduleTime/>
             case 4:
-                return <Confirmation/>
+                return <Confirmation id={state}/>
             default: 
                 break;
         }

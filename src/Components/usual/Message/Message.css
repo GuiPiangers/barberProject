@@ -1,0 +1,30 @@
+@keyframes messageAnimate {
+    from{
+        top: 20px;
+        opacity: 0;
+    }
+    to{
+        top: 60px;
+        opacity: 1;
+    }
+}
+
+.message{
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
+    width: 90%;
+    text-align: center;
+    animation: messageAnimate 0.2s;
+}
+
+.success{
+        color: #ffffff;
+    background-color: #00c29a;
+}
+.error{
+    color: #ffffff;
+    background-color: #dc2237;
+}

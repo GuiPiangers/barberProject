@@ -7,6 +7,10 @@
     background-color: #343434;
 }
 
+.scheduling-item--disable{
+    opacity: 0.6;
+}
+
 .scheduling-item__container{
     display: flex;
     flex-direction: column;

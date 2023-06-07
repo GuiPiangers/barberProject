@@ -7,7 +7,7 @@ export default class Schedulings {
     async set(scheduling) {
         console.log(scheduling)
         return this._colection.set(
-            `scheduling`, scheduling
+            `scheduling`, scheduling, scheduling?.id
         )
     }
 
