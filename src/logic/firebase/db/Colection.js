@@ -5,6 +5,7 @@ import {
     getDoc, 
     collection,
     getDocs, 
+    onSnapshot,
     orderBy,
     deleteDoc, 
     where,
@@ -30,8 +31,10 @@ export default class Colection{
         const batch = writeBatch(db)
 
         sets.forEach(element => {
-            const idEnd = element.id ?? uuidv4()
-            batch.set(doc(db, element.path, idEnd), element.entity, {merge: true})
+            if(element.hasOwnProperty('path')){
+                const idEnd = element.id ?? uuidv4()
+                batch.set(doc(db, element.path, idEnd), element?.entity, {merge: true})
+            }
         });
 
         await batch.commit()
@@ -51,11 +54,25 @@ export default class Colection{
         return true
     }
 
-    async search(path, order, direction){
+    async getSnapshot(path, filters, order, direction, fn){
+        const db = getFirestore(app)
+        const colectionRef = collection(db, path)
+
+        const filtersWhere = filters?.map(f => where(f.atribute, f.op, f.value)) ?? []
+        const newOrder = order ? [orderBy(order, direction)] : []
+
+        const consult = query(colectionRef, ...filtersWhere, ...newOrder)
+        return onSnapshot(consult, async snapshot => {
+            fn( snapshot.docs.map(doc => doc.data())) 
+        })
+        
+
+        
+    }
+
+    async search(path){
         const db = getFirestore(app)
         const collectionRef = collection(db, path)
-        const filter = []
-        const newOrder = order ? [orderBy(order, direction)] : []
         const consult = query(collectionRef)
         const result = await getDocs(consult)
         return result.docs.map(this._convertData) ?? []
@@ -65,6 +82,7 @@ export default class Colection{
         const db = getFirestore(app)
         const docRef = doc(db, path, id)
         const result = await getDoc(docRef)
+        if(!result.exists()) return false
         return this._convertData(result)
     }
 

@@ -16,23 +16,23 @@ export default function SchedulingsList(){
         async function loadSchedulings(){
             if(!user) return
             const fireBaseScheduling = new Schedulings
-            setSchedulings(await fireBaseScheduling.searchByClientId(user.id))
+            await fireBaseScheduling?.snapSearchByClientId(user.id, setSchedulings)
         }
         loadSchedulings()
-    }, [user, schedulings])
+    }, [user])
 
     return(
         <ul className="Schedulings-list">
             {schedulings.length 
-            ? schedulings.map((scheduling) =>
-                    <SchedulingItem 
+            ? schedulings.map((scheduling) =>{
+                return(<SchedulingItem 
                         date={scheduling.date} 
                         time={scheduling.time}
                         service={scheduling.service}
-                        professional={scheduling.professional.name}
+                        professional={scheduling.professional}
                         id={scheduling.id}
                         key={scheduling.id}
-                    />
+                    />)}
                 ) 
             : <NotFound>
                 <p>Nenhum agendamento encontrado</p>

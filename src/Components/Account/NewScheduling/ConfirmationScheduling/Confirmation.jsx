@@ -9,6 +9,7 @@ import { getTimeStamp } from '../../../../logic/utils/dateTimeConverter';
 import ConfirmationItem from "./ConfirmationItem";
 import Button from '../../../usual/Button/Button'
 import Schedulings from '../../../../logic/core/Schedulings';
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 
 
@@ -29,10 +30,11 @@ export default function Confirmation({id}){
                 id: user.id,
                 name: user.name
             },
+            id: id ?? uuidv4(),
             service: stateScheduling.service.name,
+            price: stateScheduling.service.price,
             date: stateScheduling.date,
             time: stateScheduling.hour,
-            id: id,
             timeStamp: getTimeStamp(stateScheduling.date, stateScheduling.hour)
         }
 

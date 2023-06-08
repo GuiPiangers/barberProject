@@ -18,7 +18,7 @@ export default function SchedulingItem({date, time, service, professional, id}){
 
     async function deleteScheduling(){
         try{
-            await schedulings.delete({id: id, date: date})
+            await schedulings.delete({id: id, date: date, professional: professional.id})
             setVisibleMessage(true)
             setMessageType('success')
             setMessage('Agendamento cancelado com sucesso!')
@@ -36,7 +36,6 @@ export default function SchedulingItem({date, time, service, professional, id}){
             state: id
         })
     }
-    
     return(
         <li className={`scheduling-item 
             ${convertToJsDate(nowDate, nowTime) > convertToJsDate(date, time) && 'scheduling-item--disable'}`}
@@ -49,7 +48,7 @@ export default function SchedulingItem({date, time, service, professional, id}){
                     </p>
                     <p className='scheduling-item__info'>
                         Profissional: 
-                         <span> {professional}</span>
+                         <span> {professional.name}</span>
                     </p>
                 </div>
                 

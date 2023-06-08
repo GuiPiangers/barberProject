@@ -1,0 +1,16 @@
+.scheduling-item-CP{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scheduling-item-CP__info{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.scheduling-item-CP__client{
+    font-size: 14px;
+}

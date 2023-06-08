@@ -3,6 +3,15 @@
     cursor: pointer;
 }
 
+.calendar-item--select{
+    background-color: rgb(251, 222, 186);
+}
+
+.calendar-item--today .calendar-item__header,
+.calendar-item--today{
+    color: var(--color_emphasis);
+}
+
 .calendar-item--disable{
     opacity: 0.6;
 }
@@ -21,5 +30,5 @@
     align-items: center;
     justify-content: center;
     padding: 6px;
-    min-height: 32px;
+    min-height: 36px;
 }

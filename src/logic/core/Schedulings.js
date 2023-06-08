@@ -6,7 +6,18 @@ export default class Schedulings {
     _colection = new Colection()
 
     async set(scheduling) {
-        console.log(scheduling)
+        const oldData = await this._colection.getById(`scheduling`, scheduling.id)
+
+        let reduceSchedulingCount = {}
+
+        if(oldData){
+            reduceSchedulingCount = {
+                path: `professional/${oldData.professional?.id}/schedulingCount`, 
+                entity:{schedulingCount: increment(-1) },
+                id: convertToJsDate(oldData.date)
+            }
+        }
+
         const setScheduling = {
             path: `scheduling`, 
             entity: scheduling, 
@@ -19,18 +30,19 @@ export default class Schedulings {
         }
         return this._colection.setBatch([
             setScheduling,
-            setSchedulingCount
+            setSchedulingCount,
+            reduceSchedulingCount
         ])
     }
-    async decrementScheduling(date) {
+    async decrementScheduling(date, id) {
         return this._colection.set(
-            `professional/schedulingCount`, {schedulingCount: increment(-1)}, convertToJsDate(date)
+            `professional/${id}/schedulingCount`, {schedulingCount: increment(-1)}, convertToJsDate(date)
         )
     }
 
     async delete(scheduling) {
-
-        this.decrementScheduling(scheduling.date)
+        console.log(scheduling)
+        this.decrementScheduling(convertToJsDate(scheduling.date), scheduling.professional)
         return this._colection.delete(
             `scheduling`, scheduling.id
         )
@@ -53,5 +65,11 @@ export default class Schedulings {
         return await this._colection.searchWithFilters(path, [
             { atribute: 'client.id', op: "==", value: clientId },
         ], 'timeStamp', 'asc')
+    }
+    async snapSearchByClientId(clientId, fn) {
+        const path = `scheduling`
+        await this._colection.getSnapshot(path, [
+            { atribute: 'client.id', op: "==", value: clientId },
+        ], 'timeStamp', 'asc', fn)
     }
 }

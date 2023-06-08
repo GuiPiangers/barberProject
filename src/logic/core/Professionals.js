@@ -24,7 +24,7 @@ export default class Professionals {
     }
     async searchSchedulingCount(id) {
         const path = `professional/${id}/schedulingCount`
-        return await this._colection.search(path)
+        return await this._colection.searchWithFilters(path, [{atribute: 'schedulingCount', op: '>', value: 0}])
     }
     async searchByService(service) {
         const path = `professional`

@@ -1,35 +1,29 @@
 .calendar {
-    width: 500px;
+    width: 100%;
+    max-width: 480px;
     border: 1px solid #ccc;
     padding: 10px;
 }
 
 .calendar-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .calendar-header h2 {
-margin: 0;
+    text-align: center;
 }
 
 .calendar-grid {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .weekday{
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 6px;
-}
-
-button {
-background-color: #fff;
-border: 1px solid #ccc;
-padding: 5px 10px;
-cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import Professionals from '../../../logic/core/Professionals'
 import { convertToJsDate } from '../../../logic/utils/dateTimeConverter'
+import {RiArrowLeftSLine, RiArrowRightSLine} from 'react-icons/ri'
+
 
 import './Calendar.css'
 import CalendarItem from './CalendarItem/CalendarItem'
@@ -10,7 +12,7 @@ import useCalendarContext from '../../../data/hooks/useCalendarContext'
 export default function Calendar(){
   const professionals = new Professionals
 
-  const {selectProfessional} = useCalendarContext()
+  const {selectProfessional, selectDate} = useCalendarContext()
   const [currentDate, setCurrentDate] = useState(new Date());
   const [schedulingCount, setSchedulingCount] = useState([])
   const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
@@ -56,18 +58,23 @@ export default function Calendar(){
     // Adiciona os números dos dias do mês atual
     for (let day = 1; day <= numDays; day++) {
       const dayDate = new Date(year, month, day).toLocaleDateString()
+      const today = new Date().toLocaleDateString()
 
-      const AppointedIndex = schedulingCount.findIndex(item => item.id === convertToJsDate(dayDate))
+      const AppointedCount = schedulingCount.find(item => item.id === convertToJsDate(dayDate))
 
       calendar.push(
         <CalendarItem 
+          customClass={`
+            ${dayDate === today ? 'calendar-item--today' : ''}
+            ${dayDate === selectDate ? 'calendar-item--select' : ''}
+          `}
           key={`day-${day}`} 
           day={day.toString().padStart(2, 0)}
           date={dayDate}
         >
-          {AppointedIndex >= 0 && 
+          {AppointedCount &&
             <AppointedDay 
-              count={schedulingCount[AppointedIndex].schedulingCount}
+              count={AppointedCount.schedulingCount}
             />}
         </CalendarItem>
       );
@@ -79,19 +86,13 @@ export default function Calendar(){
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={
-            () => handleCalendarDay(-1)
-          }
-        >
-          Anterior
-        </button>
+      <span onClick={() => handleCalendarDay(-1)}>
+          <RiArrowLeftSLine size={24} cursor='pointer'/>
+        </span>
         <h2>{currentDate.toLocaleString('pt-BR', { month: 'long', year: 'numeric' })}</h2>
-        <button onClick={
-            () => handleCalendarDay(1)
-          }
-        >
-          Próximo
-        </button>
+        <span onClick={() => handleCalendarDay(1)}>
+          <RiArrowRightSLine size={24} cursor='pointer'/>
+        </span>
       </div>
       <div className="calendar-grid">
           {weekDays.map(weekDay => 

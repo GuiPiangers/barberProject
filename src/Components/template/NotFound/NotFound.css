@@ -6,6 +6,10 @@
     gap: 16px;
 }
 
+.notfound--light{
+    color: #808080;
+}
+
 .notfound p {
     opacity: 0.7;
     letter-spacing: 0.7px;
