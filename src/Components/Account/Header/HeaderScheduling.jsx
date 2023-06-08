@@ -36,6 +36,11 @@ export default function HeaderScheduling(){
                             Meus agendamentos
                         </Link>
                     </DropdownOption>
+                    <DropdownOption >
+                        <Link to="/account/controlpanel" className='optional-link'>
+                            Painel de controle
+                        </Link>
+                    </DropdownOption>
                     <DropdownOption onClickFunction={logout}>
                         <div className='logout'>
                             Sair
