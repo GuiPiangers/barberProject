@@ -7,7 +7,8 @@ import {
     getDocs, 
     orderBy,
     deleteDoc, 
-    where, 
+    where,
+    writeBatch,
     query} from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid'
 import { app } from '../config/app'
@@ -17,11 +18,23 @@ export default class Colection{
         const db = getFirestore(app)
         const idEnd = id ?? entity.id ?? uuidv4()
         const docRef = doc(db, path, idEnd)
-        await setDoc(docRef, entity)
+        await setDoc(docRef, entity, {merge: true})
 
         return{
             ...entity, id: entity.id ?? idEnd
         }
+    }
+
+    async setBatch(sets){
+        const db = getFirestore(app)
+        const batch = writeBatch(db)
+
+        sets.forEach(element => {
+            const idEnd = element.id ?? uuidv4()
+            batch.set(doc(db, element.path, idEnd), element.entity, {merge: true})
+        });
+
+        await batch.commit()
     }
 
 

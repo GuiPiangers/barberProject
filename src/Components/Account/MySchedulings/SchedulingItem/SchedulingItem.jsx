@@ -18,13 +18,16 @@ export default function SchedulingItem({date, time, service, professional, id}){
 
     async function deleteScheduling(){
         try{
-            await schedulings.delete(id)
+            await schedulings.delete({id: id, date: date})
             setVisibleMessage(true)
             setMessageType('success')
             setMessage('Agendamento cancelado com sucesso!')
         }
-        catch{
-
+        catch(e){
+            console.log(e)
+            setVisibleMessage(true)
+            setMessageType('error')
+            setMessage('Falha ao cancelar agendamento!')
         }
     }
 

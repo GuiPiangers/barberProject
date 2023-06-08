@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid"
 import './Input.css'
 
-export default function Input({name, type, ...props}){
+export default function Input({name, type, customClass, ...props}){
     const id = uuid()
     return(
         <div className="input-container">
@@ -9,7 +9,7 @@ export default function Input({name, type, ...props}){
             {
                 type === 'select' ? 
                 <select 
-                    className="input" 
+                    className={`input ${customClass}`} 
                     type={type} 
                     {...props} 
                     d={id}

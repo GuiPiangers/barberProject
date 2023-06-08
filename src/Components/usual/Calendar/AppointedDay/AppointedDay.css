@@ -1,0 +1,12 @@
+.appointed-day{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    background-color: #1c1c1c;
+    border-radius: 50%;
+    flex-shrink: 0;
+    color: #f1f1f1;
+    font-size: 12px;
+}

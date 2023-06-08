@@ -15,6 +15,13 @@
     outline: none;
 }
 
+.input--dark{
+    border: 1px solid var(--color_title_dark);
+    color: var(--color_title_dark);
+
+    
+}
+
 .input:focus{
     border-color: var(--color_emphasis);
 }

@@ -1,0 +1,25 @@
+.calendar-item{
+    border: 1px solid hsla(0, 0%, 0%, 0.25);
+    cursor: pointer;
+}
+
+.calendar-item--disable{
+    opacity: 0.6;
+}
+.calendar-item__header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1c1c;
+    color: #cacaca;
+    padding: 2px 8px;
+    font-size: 13px;
+}
+
+.calendar-item__body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    min-height: 32px;
+}

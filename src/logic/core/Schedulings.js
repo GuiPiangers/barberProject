@@ -1,19 +1,38 @@
+import { increment } from "firebase/firestore";
 import Colection from "../firebase/db/Colection";
-
+import { convertToJsDate } from "../utils/dateTimeConverter";
 
 export default class Schedulings {
     _colection = new Colection()
 
     async set(scheduling) {
         console.log(scheduling)
+        const setScheduling = {
+            path: `scheduling`, 
+            entity: scheduling, 
+            id: scheduling.id
+        }
+        const setSchedulingCount = { 
+            path: `professional/${scheduling.professional?.id}/schedulingCount`, 
+            entity:{schedulingCount: increment(1) },
+            id: convertToJsDate(scheduling.date)
+        }
+        return this._colection.setBatch([
+            setScheduling,
+            setSchedulingCount
+        ])
+    }
+    async decrementScheduling(date) {
         return this._colection.set(
-            `scheduling`, scheduling, scheduling?.id
+            `professional/schedulingCount`, {schedulingCount: increment(-1)}, convertToJsDate(date)
         )
     }
 
-    async delete(schedulingId) {
+    async delete(scheduling) {
+
+        this.decrementScheduling(scheduling.date)
         return this._colection.delete(
-            `scheduling`, schedulingId
+            `scheduling`, scheduling.id
         )
     }
 
