@@ -9,11 +9,11 @@ export default function Input({name, type, style, customClass, ...props}){
             {
                 type === 'select' ? 
                 <select 
-                    className={`input ${customClass}`} 
+                    className={`input select ${customClass}`} 
                     type={type} 
                     {...props} 
                     style={style}
-                    d={id}
+                    id={id}
                 />
                 : type === 'textArea' ? 
                 <textarea 

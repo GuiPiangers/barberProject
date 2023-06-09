@@ -1,12 +1,24 @@
 .select-date{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .select-date__chose{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
+    gap: 20px;
     border: 1px solid #1c1c1c;
     cursor: pointer;
+}
+
+.select-date__chose span{
+    padding: 6px 0px 6px 16px;
+}
+.select-arrow{
+    height: 32px;
+}
+.select-date__chose:hover .select-arrow{
+    background-color: #DEDEDE;
 }

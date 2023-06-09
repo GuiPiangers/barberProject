@@ -32,11 +32,12 @@ export default function SchedilingHeader({professionalsList, toggleSelectQuery})
             <h2>{selectDate}</h2> :
 
             <div className="select-date">
+                <label htmlFor="">Selecione a data</label>
                 <span 
                     className='select-date__chose' 
                     onClick={toggleCalendarVisibility}
                 >
-                    {selectDate} <RiArrowDownSLine size={24}/>
+                    <span>{selectDate}</span> <RiArrowDownSLine size={12} color='#818181'  className='select-arrow'/>
                 </span>
 
                 <Dropdown 
@@ -52,7 +53,7 @@ export default function SchedilingHeader({professionalsList, toggleSelectQuery})
 
         <Input
             type='select'
-            name='selecione o Profissional'
+            name='Selecione o profissional'
             customClass='input--dark'
             value={selectProfessional}
             onChange={(event)=>{
