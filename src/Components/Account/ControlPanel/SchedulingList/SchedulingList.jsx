@@ -7,8 +7,9 @@ import Professionals from "../../../../logic/core/Professionals"
 import SchedulingItemCP from "../SchedulingItemCP/SchedulingItemCP"
 import Schedulings from '../../../../logic/core/Schedulings'
 import NotFound from '../../../template/NotFound/NotFound'
+import SchedilingHeader from "./SchedulingHeader/SchedulingHeader"
 
-export default function SchedulingList(){
+export default function SchedulingList({toggleSelectQuery}){
 
     const professionals = new Professionals
     const schedulings = new Schedulings
@@ -34,16 +35,7 @@ export default function SchedulingList(){
         getData()
     }, [selectProfessional, selectDate])
 
-    const renderProfessionalsOption = ()=>{
-        return professionalsList?.map(professional =>
-            <option 
-                value={professional.id}
-                key={professional.id}
-            >
-                {professional.name}
-            </option>
-        )
-    }
+
     const renderSChedulingItem = ()=>{
         if(!schedulingsList.length) return false
         return schedulingsList?.map(schediling =>
@@ -59,22 +51,8 @@ export default function SchedulingList(){
 
     return (
         <div className="scheduling-list-container">
-            <div className="scheduling-list__header">
-                <h2>{selectDate}</h2>
-                <Input
-                    type='select'
-                    name='selecione o Profissional'
-                    customClass='input--dark'
-                    value={selectProfessional}
-                    maxWidth='200px'
-                    onChange={(event)=>{
-                        setSelectProfessional(event.target.value)
-                    }}
-                >
-                    {renderProfessionalsOption()}
-                </Input>
-            </div>
 
+            <SchedilingHeader professionalsList={professionalsList} toggleSelectQuery={toggleSelectQuery}/>
             <ul className="scheduling-list">
                 {renderSChedulingItem() || 
                 <NotFound customClass='notfound--light'>

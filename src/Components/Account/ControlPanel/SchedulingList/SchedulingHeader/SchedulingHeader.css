@@ -1,0 +1,12 @@
+.select-date{
+    position: relative;
+}
+
+.select-date__chose{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border: 1px solid #1c1c1c;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 .dropdown{
     top: 52px;
-    max-height: 280px;
+    /* max-height: 280px; */
     position: absolute;
     margin-top: 8px;
     background-color: #262626;
@@ -9,6 +9,11 @@
     transform: translate3d(0, -20px, 0);
     opacity: 0;
     animation: slideIn ease-in-out .2s forwards;
+    z-index: 2;
+}
+
+.dropdown.dropdown--light{
+    background-color: #f1f1f1;
 }
 
 .option--align-right{

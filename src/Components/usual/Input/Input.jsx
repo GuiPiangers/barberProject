@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid"
 import './Input.css'
 
-export default function Input({name, type, maxWidth, customClass, ...props}){
+export default function Input({name, type, style, customClass, ...props}){
     const id = uuid()
     return(
         <div className="input-container">
@@ -12,7 +12,7 @@ export default function Input({name, type, maxWidth, customClass, ...props}){
                     className={`input ${customClass}`} 
                     type={type} 
                     {...props} 
-                    style={{maxWidth: maxWidth}}
+                    style={style}
                     d={id}
                 />
                 : type === 'textArea' ? 
@@ -20,14 +20,14 @@ export default function Input({name, type, maxWidth, customClass, ...props}){
                     className="input" 
                     type={type} 
                     {...props} 
-                    style={{maxWidth: maxWidth}}
+                    style={style}
                     id={id}
                 />
                 : <input 
                     className="input" 
                     type={type} 
                     {...props} 
-                    style={{maxWidth: maxWidth}}
+                    style={style}
                     id={id}
                 />
             }

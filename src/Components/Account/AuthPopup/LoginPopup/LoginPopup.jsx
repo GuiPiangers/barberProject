@@ -26,6 +26,7 @@ export default function LoginPopup({handleIsLogin, isLogin}){
                 type='email' 
                 value={email}
                 onChange={(event)=>setEmail(event.target.value)}
+                style={{width: '318px'}}
                 required 
                 placeholder="exemplo@gmail.com"
             />
@@ -35,6 +36,7 @@ export default function LoginPopup({handleIsLogin, isLogin}){
                 type='password' 
                 value={password}
                 onChange={(event)=>setPassword(event.target.value)}
+                style={{width: '318px'}}
                 required 
                 placeholder="*********"
             />  
