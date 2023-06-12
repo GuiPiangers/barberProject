@@ -14,14 +14,15 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 680px) {
     .grid-container{
         grid-template-columns: 1fr 1fr;
     }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 480px) {
     .grid-container{
         grid-template-columns: 1fr;
+        place-items: center;
     }
 
 }

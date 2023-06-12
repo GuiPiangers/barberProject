@@ -39,7 +39,7 @@
     transition: 0.3s;
 }
 
-[data-animation='left'].professional-card__name-container{
+[data-animation='left'] .professional-card__name-container{
     width: 0;
     height: 0;
 }
