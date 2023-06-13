@@ -52,8 +52,7 @@ export default function SchedulingItem({date, time, service, professional, id}){
                     </p>
                 </div>
                 
-                {convertToJsDate(nowDate, nowTime) < convertToJsDate(date, time) &&
-                    <div className='scheduling-item__container'>
+                    <div className='scheduling-item__container button-container'>
                         <Button 
                             customClass='button--borderLine'
                             onClick={editScheduling}
@@ -67,7 +66,7 @@ export default function SchedulingItem({date, time, service, professional, id}){
                             Cancelar
                         </Button>
                     </div>                
-                }
+
         </li>
     )
 }

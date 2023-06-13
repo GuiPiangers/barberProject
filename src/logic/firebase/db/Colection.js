@@ -31,7 +31,12 @@ export default class Colection{
         const batch = writeBatch(db)
 
         sets.forEach(element => {
-            if(element.hasOwnProperty('path')){
+            if(!element.hasOwnProperty('path')) return
+
+            if(element.method === 'delete'){
+                batch.delete(doc(db, element.path, element.id))
+            }
+            else{
                 const idEnd = element.id ?? uuidv4()
                 batch.set(doc(db, element.path, idEnd), element?.entity, {merge: true})
             }
