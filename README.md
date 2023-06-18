@@ -8,11 +8,11 @@ A BarberStyle foi a minha primeira aplicação desenvolvida completamente idepen
 
 O projeto consiste em um sistema de agendamentos para uma barbearia.
 
-###O projeto conta com:
--Landing Page
--Formulário de Login e Cadastro
--Autentificação com Google
--Criar, editar e excluir agendamentos
+### O projeto conta com:
+- Landing Page
+- Formulário de Login e Cadastro
+- Autentificação com Google
+- Criar, editar e excluir agendamentos
 
 ## Tecnologias utilizadas
 - CSS
