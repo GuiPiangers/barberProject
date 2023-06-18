@@ -4,9 +4,15 @@ https://barber-project-e7916.web.app
 
 ## Sobre o projeto
 
-Big Game Survey é uma aplicação full stack web e mobile construída durante a 1ª edição da **Semana DevSuperior** (#sds1), evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
+A BarberStyle foi a minha primeira aplicação desenvolvida completamente idependente em React Js. 
 
-A aplicação consiste em uma pesquisa de preferência de games, onde os dados são coletados no app mobile, e depois são listados no app web, que também apresenta um dashboard com gráficos baseados nestes dados.
+O projeto consiste em um sistema de agendamentos para uma barbearia.
+
+O projeto conta com:
+-Landing Page
+-Formulário de Login e Cadastro
+-Autentificação com Google
+-Criar, editar e excluir agendamentos
 
 ## Tecnologias utilizadas
 - CSS
@@ -22,10 +28,10 @@ Pré-requisitos: Conta no Google
 
 - Crie um projeto no Firebase
 - Adicione Firestore Database ao projeto
-- copie e cole as informações do projeto para o arquivo na pasta scr/logic/firebase/config/app.js
+- Copie e cole as informações do projeto para o arquivo na pasta scr/logic/firebase/config/app.js
   exemplo:
 ```bash
-  const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "Sua apikey",
   authDomain: "barber-project.firebaseapp.com",
   projectId: "barber-project",
