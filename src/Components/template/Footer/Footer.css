@@ -16,6 +16,10 @@
 }
 
 .footer__link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 8px;
     background-color: #1c1c1c;
     text-decoration: none;
