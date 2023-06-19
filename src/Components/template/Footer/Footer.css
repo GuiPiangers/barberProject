@@ -14,3 +14,15 @@
 .footer__content *{
     text-align: center;
 }
+
+.footer__link{
+    padding: 8px;
+    background-color: #1c1c1c;
+    text-decoration: none;
+    color: var(--color_title_light);
+    word-break: break-all;
+}
+
+.footer__link:hover{
+    background-color: #212121;
+}

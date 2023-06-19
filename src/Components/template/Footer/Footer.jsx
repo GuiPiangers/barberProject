@@ -1,6 +1,6 @@
 import './Footer.css'
-import Button from '../../usual/Button/Button'
 import BoxContainer from '../BoxContainer/BoxContainer'
+import FooterLink from './FooterLink'
 
 export default function Footer(){
     return(
@@ -9,12 +9,15 @@ export default function Footer(){
                     <div className='footer__content'>
                         <h2 className='footer__title'>Autor</h2>
                         <p>Guilherme Piangers</p>
-                        <Button customClass='button--secondary' >Ver repositório</Button>
-                        <Button customClass='button--secondary' >Meu portfólio</Button>
+                        
+                        <FooterLink url='https://github.com/GuiPiangers/barberProject/tree/main'>Ver repositório</FooterLink>
+                        <FooterLink url='https://portifolio-ten-mu.vercel.app'>Meu portfólio</FooterLink>
+                        
                         <h2 className='footer__title'>Contato</h2>
-                        <Button customClass='button--secondary' >(51) 9 8035-1927</Button>
-                        <Button customClass='button--secondary' >gui-piangers</Button>
-                        <Button customClass='button--secondary' >piangersguilherme@gmail.com</Button>
+                        
+                        <FooterLink url='https://api.whatsapp.com/send/?phone=5551980351927'>(51) 9 8035-1927</FooterLink>
+                        <FooterLink url='https://www.linkedin.com/in/guilherme-piangers'>guilherme-piangers</FooterLink>
+                        <FooterLink url='mailto:piangersguilherme@gmail.com'>piangersguilherme@gmail.com</FooterLink>
                     </div>
                 </BoxContainer>
 
