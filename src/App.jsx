@@ -7,8 +7,8 @@ import LandingPage from './Components/pages/LandingPage'
 import NewScheduling from './Components/pages/NewScheduling/NewScheduling'
 import MySchedulings from './Components/pages/MySchedulings'
 import AddForm from './Components/pages/AddForm/AddForm'
-import Teste from './Components/pages/Teste/Teste'
 import ControlPanel from './Components/pages/ControlPanel/ControlPanel'
+import Footer from './Components/template/Footer/Footer'
 
 function App() {
 
@@ -23,9 +23,9 @@ function App() {
             <Route path='controlpanel' element={<ControlPanel/>}/>
           </Route>
           <Route path='/add' element={<AddForm/>}/>
-          <Route path='/teste' element={<Teste/>}/>
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </ContextProvider> 
     
   )

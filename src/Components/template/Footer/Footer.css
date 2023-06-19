@@ -1,0 +1,16 @@
+.footer{
+    padding: 48px 16px;
+    background-color: rgb(18, 18, 18, 1);
+    color: var(--color_title_light);
+}
+
+
+.footer__content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer__content *{
+    text-align: center;
+}

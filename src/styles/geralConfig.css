@@ -27,6 +27,10 @@
     --color_text_light: #b1b1b1;   
 }
 
+.page{
+    min-height: 100vh;
+}
+
 *{
     margin: 0;
     padding: 0;

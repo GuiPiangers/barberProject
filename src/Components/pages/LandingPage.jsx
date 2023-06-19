@@ -75,7 +75,7 @@ function LandingPage() {
     <>
     <div className="set-header-transparence"></div>
       <Header isTransparent={headerTransparence}/>
-      <main>
+      <main className='page'>
         <Hero/>
         <About/>
         <Team/>

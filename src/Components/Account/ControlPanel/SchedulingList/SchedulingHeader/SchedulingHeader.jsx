@@ -42,11 +42,10 @@ export default function SchedilingHeader({professionalsList, toggleSelectQuery})
 
                 <Dropdown 
                     customClass='dropdown--light' 
-                    style={{width: '90vw', top:'40px'}} 
+                    style={{width: '90vw', maxWidth:'480px', top:'56px'}} 
                     visibility={calendarVisibility} 
-                    setVisibility={toggleCalendarVisibility}
                 >
-                    <Calendar/>
+                    <Calendar fn={toggleCalendarVisibility}/>
                 </Dropdown>
             </div>
         }

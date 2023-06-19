@@ -27,7 +27,6 @@ export default function SignUpPopup({handleIsLogin, isLogin}){
             type='text' 
             value={name}
             onChange={(event)=>setName(event.target.value)}
-            style={{width: '318px'}}
             required 
             placeholder="Ex.: João de Oliveira"
         />
@@ -36,7 +35,6 @@ export default function SignUpPopup({handleIsLogin, isLogin}){
             type='email' 
             value={email}
             onChange={(event)=>setEmail(event.target.value)}
-            style={{width: '318px'}}
             required 
             placeholder="Ex.: exemplo@gmail.com"
         />
@@ -46,7 +44,6 @@ export default function SignUpPopup({handleIsLogin, isLogin}){
             type='password' 
             value={password}
             onChange={(event)=>setPassword(event.target.value)}
-            style={{width: '318px'}}
             required 
             placeholder="6 ou mais caracteres"
         />  

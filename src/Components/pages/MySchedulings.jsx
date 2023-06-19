@@ -2,6 +2,8 @@ import MySchedulingsContent from "../Account/MySchedulings/Index"
 
 export default function MySchedulings(){
     return(
-        <MySchedulingsContent/>
+        <main className="page">
+            <MySchedulingsContent/>
+        </main>
     )
 }

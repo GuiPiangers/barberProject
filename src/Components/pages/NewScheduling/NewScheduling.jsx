@@ -5,8 +5,8 @@ import SchedulingContent from "../../Account/NewScheduling/index";
 export default function NewScheduling(){
 
     return(
-        <div className="new-scheduling">
+        <main className="new-scheduling page">
             <SchedulingContent/>
-        </div>
+        </main>
     )
 } 

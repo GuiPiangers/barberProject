@@ -9,7 +9,7 @@ import CalendarItem from './CalendarItem/CalendarItem'
 import AppointedDay from './AppointedDay/AppointedDay'
 import useCalendarContext from '../../../data/hooks/useCalendarContext'
 
-export default function Calendar(){
+export default function Calendar({fn}){
   const professionals = new Professionals
 
   const {selectProfessional, selectDate} = useCalendarContext()
@@ -71,6 +71,7 @@ export default function Calendar(){
           key={`day-${day}`} 
           day={day.toString().padStart(2, 0)}
           date={dayDate}
+          fn={fn}
         >
           {AppointedCount &&
             <AppointedDay 

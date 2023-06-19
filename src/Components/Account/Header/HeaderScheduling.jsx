@@ -24,7 +24,7 @@ export default function HeaderScheduling(){
             <div className="header-dropdown" onClick={toggleDropdownVisibility}>
                 <Profile img={user?.image} name={user?.name} email={user?.email}/>
                 <Dropdown visibility={dropdownVisibility}
-                    style={{maxWidth: '100%', with: 'fit-content'}}
+                    style={{width: '100%', minWidth: '200px', with: 'fit-content'}}
                 >
                     <DropdownOption>
                         <Link to="/account/newscheduling" className='optional-link'>

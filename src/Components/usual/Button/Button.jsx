@@ -5,6 +5,7 @@ export default function Button({ customClass, children, link, ...props}){
     return(
         link?.length > 0 ?(
             <Link 
+                {...props}
                 className={`button ${customClass}`}
                 to={link}
             >

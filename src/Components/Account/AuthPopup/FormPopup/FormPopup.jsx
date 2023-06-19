@@ -26,7 +26,7 @@ export default function FormPopup({children, title, buttonText, submitButtonClic
         </p>
 
         <ButtonAuth onClick={loginGoogle}>
-            <FcGoogle size={24}/> Entrar com Google
+            <FcGoogle size={20}/> Entrar com Google
         </ButtonAuth>
 
         <p style={{margin: '16px 0'}}>{isLogin 

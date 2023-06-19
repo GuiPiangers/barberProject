@@ -4,7 +4,7 @@
     align-items: center;
     padding: 8px 32px;
     width: 100%;
-    background-color: rgb(18, 18, 18, 1);
+    background-color: hsl(0, 0%, 7%);
     z-index: 100;
     transition: 0.2s;
 }

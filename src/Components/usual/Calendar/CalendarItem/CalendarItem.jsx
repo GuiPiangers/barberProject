@@ -1,12 +1,13 @@
 import './CalendarItem.css'
 import useCalendarContext from '../../../../data/hooks/useCalendarContext'
 
-export default function CalendarItem({day, date, children, customClass}){
+export default function CalendarItem({day, date, children, customClass, fn}){
 
     const {setSelectDate} = useCalendarContext()
 
     function handleOnClick(){
         setSelectDate(date)
+        fn()
     }
 
     return (

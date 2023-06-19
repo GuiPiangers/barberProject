@@ -33,3 +33,9 @@
     letter-spacing: 0.6px;
 
 }
+
+@media screen and (max-width: 480px) {
+    .profile__info{
+        display: none;
+    }
+}
