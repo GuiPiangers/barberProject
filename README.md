@@ -62,5 +62,4 @@ npm run dev
 
 Guilherme Eduardo Martins Piangers
 
-https://www.linkedin.com/in/guilherme-piangers
-
+https://www.linkedin.com/in/guilherme-piangers-431a1a27b/

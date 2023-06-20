@@ -18,7 +18,7 @@ export default function Footer(){
                         <h2 className='footer__title'>Contato</h2>
                         
                         <FooterLink url='https://api.whatsapp.com/send/?phone=5551980351927'><FaWhatsapp/> (51) 9 8035-1927</FooterLink>
-                        <FooterLink url='https://www.linkedin.com/in/guilherme-piangers'><FaLinkedin/> guilherme-piangers</FooterLink>
+                        <FooterLink url='https://www.linkedin.com/in/guilherme-piangers-431a1a27b/'><FaLinkedin/> guilherme-piangers</FooterLink>
                         <FooterLink url='mailto:piangersguilherme@gmail.com'><SiGmail/> piangersguilherme@gmail.com</FooterLink>
                     </div>
                 </BoxContainer>
