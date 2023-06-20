@@ -57,17 +57,11 @@ export default class Schedulings {
             setSchedulingCount,
         ])
     }
-    // async delete(scheduling) {
-    //     console.log(scheduling)
-    //     this.decrementScheduling(convertToJsDate(scheduling.date), scheduling.professional)
-    //     return this._colection.delete(
-    //         `scheduling`, scheduling.id
-    //     )
-    // }
 
     async search() {
         const path = `scheduling`
-        return await this._colection.search(path, 'data', 'asc')
+        const schedulings = await this._colection.search(path, 'data', 'asc')
+        return schedulings
     }
 
     async searchByProfessionalAndDate(professional, date) {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import useOptionContext from '../../../../data/hooks/useOptionContext';
 import { renderDays } from '../../../../logic/WorkingDaysOfWeek';
-import { availableTime } from '../../../../logic/db/time';
+import { availableTime } from '../../../../logic/core/time';
 
 import SelectOption from './Select/SelectOption'
 import Select from "./Select/Select";

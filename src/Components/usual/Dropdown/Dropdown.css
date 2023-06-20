@@ -1,6 +1,5 @@
 .dropdown{
     top: 52px;
-    /* max-height: 280px; */
     position: absolute;
     margin-top: 8px;
     background-color: #262626;
@@ -26,6 +25,7 @@
 }
 .dropdown__option > *{
     padding: 8px 16px;
+    width: 100%;
 }
 .dropdown__option:hover{
     background-color: #343434;

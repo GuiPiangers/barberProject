@@ -6,12 +6,13 @@ import Schedulings from "../../../../logic/core/Schedulings"
 import SchedulingItem from "../SchedulingItem/SchedulingItem"
 import NotFound from '../../../template/NotFound/NotFound'
 import { Link } from 'react-router-dom'
+import { convertToJsDate } from '../../../../logic/utils/dateTimeConverter'
 
 export default function SchedulingsList(){
 
     const [schedulings, setSchedulings] = useState([])
     const {user} = useAuthContext()
-    
+
     useEffect(()=>{
         async function loadSchedulings(){
             if(!user) return
