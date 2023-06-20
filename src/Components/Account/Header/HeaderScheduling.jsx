@@ -8,6 +8,7 @@ import Header from "../../template/Header/Header"
 import Profile from "./Profile/Profile"
 import Dropdown from '../../usual/Dropdown/Dropdown'
 import DropdownOption from '../../usual/Dropdown/DropdownOption'
+import Logo from '../../usual/Logo/Logo'
 
 
 export default function HeaderScheduling(){
@@ -20,7 +21,8 @@ export default function HeaderScheduling(){
     }
 
     return(
-        <Header customClass='header--justify-end'>
+        <Header customClass='header--space-between'>
+            <Logo/>
             <div className="header-dropdown" onClick={toggleDropdownVisibility}>
                 <Profile img={user?.image} name={user?.name} email={user?.email}/>
                 <Dropdown visibility={dropdownVisibility}

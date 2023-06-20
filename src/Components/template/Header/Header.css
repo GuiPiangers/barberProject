@@ -18,6 +18,11 @@
 
 }
 
+.header--flex-row{
+    display: flex;
+    gap: 24px;
+}
+
 .header--transparent{
     background-color: transparent;
 }
