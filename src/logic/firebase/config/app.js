@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app"
 
 const app = initializeApp({
 
-    apiKey: REACT_APP_FIREBASE_PROJECT_ID,
-    authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: REACT_APP_FIREBASE_API_KEY,
-    storageBucket: REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
-    appId: REACT_APP_ID
+    apiKey: process.REACT_APP_FIREBASE_PROJECT_ID,
+    authDomain: process.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.REACT_APP_FIREBASE_API_KEY,
+    storageBucket: process.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.REACT_APP_ID
 
     // apiKey: "AIzaSyCip44oOHu7fQ34DGoQeanW9AC7uiuoLKs",
     // authDomain: "barber-project-e7916.firebaseapp.com",
