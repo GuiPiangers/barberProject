@@ -13,7 +13,7 @@ export default function About(){
                         <Topic>Sobre</Topic>
                         <Title>MAIS DO QUE UMA BARBEARIA</Title>
                         <p data-animation='left'>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exerci tation veniam consequat sunt nostrud amet.
+                            Aqui, a experiência é transformada em arte. Nossos mestres barbeiros combinam habilidade e paixão para criar visuais masculinos impecáveis. Dos cortes clássicos aos estilos contemporâneos, cada cliente recebe um tratamento personalizado. Entre em nosso santuário masculino, relaxe em nossas poltronas de couro luxuosas e entregue-se a um momento de cuidado exclusivo. Descubra a diferença que uma barbearia autêntica pode fazer para a sua aparência e confiança. Agende agora e experimente uma verdadeira obra-prima para o seu estilo.
                         </p>
                     <div className="social-container">
                         <a href="/">

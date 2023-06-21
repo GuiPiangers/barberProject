@@ -1,7 +1,7 @@
 .topic{
     position: relative;
     width: fit-content;
-    font-family: 'Rockwell-condensed', serif;
+    font-family: 'Rockwell-condensed', '', sans-serif;
     font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;

@@ -37,6 +37,7 @@
     width: 70%;
     overflow: hidden;
     transition: 0.3s;
+    height: fit-content;
 }
 
 [data-animation='left'] .professional-card__name-container{
@@ -50,7 +51,7 @@
 
 .professional-card__name{
     --name-size: 24px;
-    font-family: 'Rockwell-condensed';
+    font-family: 'Rockwell-condensed', sans-serif;
     font-size: var(--name-size);
     text-align: center;
     color: var(--color_title_light);

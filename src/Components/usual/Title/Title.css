@@ -1,5 +1,6 @@
 .title{
-    font-family: 'Rockwell-condensed-bold', serif;
+    font-family: 'Rockwell-condensed-bold', sans-serif;
+    font-weight: bold;
     font-size: 40px;
     text-transform: uppercase;
 }

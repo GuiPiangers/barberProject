@@ -30,7 +30,8 @@
 }
 
 .hero__content h1{
-    font-family: 'Rockwell-condensed-bold', serif;
+    font-family: 'Rockwell-condensed-bold', sans-serif;
+    font-weight: bold;
     font-size: 96px;
     color: var(--color_title_light);
     letter-spacing: 4px;

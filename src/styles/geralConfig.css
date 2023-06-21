@@ -18,13 +18,14 @@
     font-family: 'Rockwell-bold';
     src: url(../assets/fonts/rockwell-bold.ttf) format('truetype');
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
     --color_emphasis: #FAB142;
     --color_background: #1C1C1C;
     --color_title_dark: #1C1C1C;
     --color_title_light: #f1f1f1;
-    --color_text_light: #b1b1b1;   
+    --color_text_light: #c7c7c7;   
 }
 
 .page{
